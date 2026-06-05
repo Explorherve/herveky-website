@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advisory · Hervé Ky</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8922A;
+      --gold-light: #E8B84B;
+      --gold-pale: #F5E6C8;
+      --ink: #1A1714;
+      --ink-soft: #3D3730;
+      --stone: #8C8480;
+      --cream: #FAF8F4;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,146,42,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-soft);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a.current { color: var(--gold); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 11rem 4rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute;
+      top: -25%; right: -8%;
+      width: 50vw; height: 50vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block; font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--gold);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 1.5rem; max-width: 16ch;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 300; font-style: italic;
+      color: var(--stone); max-width: 620px; line-height: 1.5; margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-block; padding: 0.75rem 2rem;
+      background: var(--gold); color: var(--white);
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block; padding: 0.75rem 2rem;
+      border: 1px solid var(--gold); color: var(--gold);
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: var(--gold); color: var(--white); }
+
+    /* SECTION COMMONS */
+    section { padding: 6rem 4rem; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+      line-height: 1.15; color: var(--ink); margin-bottom: 2.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* VALUE */
+    .value { background: var(--white); }
+    .value-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      font-weight: 300; line-height: 1.5; color: var(--ink); max-width: 880px;
+    }
+    .value-lead em { font-style: italic; color: var(--gold); }
+
+    /* BACKGROUND */
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+    .about-body p { font-size: 1rem; font-weight: 300; color: var(--ink-soft); line-height: 1.9; margin-bottom: 1.5rem; }
+    .about-body p:first-child {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
+      font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.6;
+    }
+    .sectors { margin-top: 2.5rem; border-left: 1px solid var(--gold-pale); padding-left: 1.5rem; }
+    .sectors p { font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); margin-bottom: 0.5rem; }
+    .sectors strong { color: var(--gold); font-weight: 500; letter-spacing: 0.05em; }
+
+    /* SERVICES */
+    .services { background: var(--white); }
+    .svc-row {
+      display: grid; grid-template-columns: 1.1fr 2fr auto; gap: 2.5rem;
+      align-items: start; padding: 1.8rem 0; border-top: 1px solid rgba(200,146,42,0.18);
+    }
+    .svc-row:last-child { border-bottom: 1px solid rgba(200,146,42,0.18); }
+    .svc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); }
+    .svc-desc { font-size: 0.92rem; font-weight: 300; color: var(--stone); line-height: 1.7; }
+    .svc-price { font-size: 0.85rem; font-style: italic; color: var(--gold); white-space: nowrap; text-align: right; }
+    @media (max-width: 760px){ .svc-row{ grid-template-columns: 1fr; gap: 0.4rem; } .svc-price{ text-align: left; } }
+
+    /* MODELS */
+    .models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(200,146,42,0.1); }
+    .model { background: var(--white); padding: 2.5rem; }
+    .model h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+    .model .rate { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .model p { font-size: 0.88rem; font-weight: 300; color: var(--stone); line-height: 1.7; }
+    @media (max-width: 760px){ .models-grid{ grid-template-columns: 1fr; } }
+
+    /* CLIENTS */
+    .clients { background: var(--white); }
+    .who-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 3rem; max-width: 880px; }
+    .who-item { border-top: 1px solid rgba(200,146,42,0.18); padding-top: 1rem; }
+    .who-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: 0.25rem; }
+    .who-item p { font-size: 0.88rem; font-weight: 300; color: var(--stone); line-height: 1.6; }
+    @media (max-width: 760px){ .who-list { grid-template-columns: 1fr; gap: 1.2rem; } }
+
+    /* TESTIMONIAL */
+    .testimonial { background: var(--cream); }
+    .testimonial-box { max-width: 820px; margin: 0 auto; text-align: center; position: relative; }
+    .testimonial-box::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem; line-height: 0.7; color: var(--gold-pale);
+      display: block; margin-bottom: 0.5rem;
+    }
+    .testimonial-box blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 300; font-style: italic;
+      line-height: 1.4; color: var(--ink); margin-bottom: 1.8rem;
+    }
+    .testimonial-attr {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .testimonial-context {
+      font-size: 0.85rem; font-weight: 300; font-style: italic;
+      color: var(--stone); margin-top: 0.5rem;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--ink); color: var(--cream); }
+    .contact .section-title { color: var(--cream); margin-bottom: 1rem; }
+    .contact .section-title em { color: var(--gold-light); }
+    .contact-sub { font-size: 0.95rem; font-weight: 300; color: rgba(250,248,244,0.6); line-height: 1.8; margin-bottom: 2.5rem; max-width: 520px; }
+    .contact-cta {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400; color: var(--cream); text-decoration: none;
+      border-bottom: 1px solid var(--gold); padding-bottom: 0.3rem; transition: color 0.2s;
+    }
+    .contact-cta:hover { color: var(--gold-light); }
+    .contact-meta { margin-top: 1.8rem; font-size: 0.8rem; font-weight: 300; color: rgba(250,248,244,0.4); letter-spacing: 0.04em; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); border-top: 1px solid rgba(200,146,42,0.15);
+      padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p { font-size: 0.78rem; color: rgba(250,248,244,0.3); font-weight: 300; }
+    footer span { color: var(--gold); }
+    footer a { color: rgba(250,248,244,0.3); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-hero { padding: 9rem 2rem 4rem; }
+      section { padding: 4.5rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Hervé<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#projects">Projects</a></li>
+    <li><a href="advisory.html" class="current">Advisory</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner fade-in">
+    <span class="hero-eyebrow">Advisory</span>
+    <h1>The deal team you don't have <em>in-house</em>.</h1>
+    <p class="lede">The modelling, valuation, structuring and diligence a fund gets from its own team — for sponsors, searchers and dealmakers who need it deal-by-deal.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Start a conversation</a>
+      <a href="#services" class="btn-ghost">What I do</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="value" id="approach">
+  <div class="inner">
+    <p class="section-label fade-in">How I help</p>
+    <p class="value-lead fade-in">I plug into your process for the work that needs <em>senior judgement</em> — the model, the valuation, the structure, the diligence — and deliver it to the standard a credit or investment committee would expect. Every engagement is scoped and priced up front, so you know exactly what you're getting before we begin.</p>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="about" id="about-advisory">
+  <div class="inner about-grid">
+    <div class="fade-in">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Built on<br>real <em>deals</em></h2>
+      <div class="sectors">
+        <p><strong>Sectors</strong></p>
+        <p>Private equity &amp; buyouts</p>
+        <p>Energy &amp; renewables — solar, battery storage (BESS)</p>
+        <p>SMEs &amp; founder-led businesses</p>
+        <p>Cambodia &amp; Southeast Asia</p>
+      </div>
+    </div>
+    <div class="about-body fade-in" style="transition-delay:0.15s">
+      <p>Seven years in investment banking at BNP Paribas and J.P. Morgan, working alongside private-equity firms and businesses through their most pivotal transactions.</p>
+      <p>Since then I've worked deal-side across a wider canvas: structuring renewable-energy transactions including solar and battery energy storage, and leading valuation, pricing and due diligence on private-equity targets. I build alongside it as a founder myself — so I bring both the discipline of the model and the practical eye of someone who has actually run things.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="inner">
+    <p class="section-label fade-in">What I do</p>
+    <h2 class="section-title fade-in">The <em>work</em></h2>
+    <div class="fade-in">
+      <div class="svc-row">
+        <div class="svc-name">Financial modelling</div>
+        <div class="svc-desc">LBO, three-statement, operating and project-finance models, built from blank to institutional standard — returns, sensitivities and debt schedules, scoped to your deal.</div>
+        <div class="svc-price">from £2,000</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Valuation &amp; pricing</div>
+        <div class="svc-desc">Company and asset valuation, pricing a target, and returns analysis — the numbers behind what a deal is really worth and what you should pay.</div>
+        <div class="svc-price">project / day rate</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Transaction structuring</div>
+        <div class="svc-desc">Capital structure, debt sizing and terms, and returns-waterfall and promote design — across buyouts and energy &amp; infrastructure deals.</div>
+        <div class="svc-price">day rate</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Due diligence</div>
+        <div class="svc-desc">Financial and commercial diligence on a live target: quality-of-earnings review, working-capital and debt analysis, diligence questions and red-flag memos.</div>
+        <div class="svc-price">project / day rate</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-name">Investment materials</div>
+        <div class="svc-desc">A CIM, information memorandum or investment paper for a raise or a sale — narrative, financials and structuring brought together in one credible document.</div>
+        <div class="svc-price">from £5,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section id="how">
+  <div class="inner">
+    <p class="section-label fade-in">How I work</p>
+    <h2 class="section-title fade-in">Ways to <em>engage</em></h2>
+    <div class="models-grid fade-in">
+      <div class="model">
+        <h3>By the project</h3>
+        <div class="rate">Fixed fee, scoped up front</div>
+        <p>Best when you have a defined deliverable — a model, a valuation, an IM, a diligence package.</p>
+      </div>
+      <div class="model">
+        <h3>Fractional retainer</h3>
+        <div class="rate">£2,000–5,000 / month</div>
+        <p>A few days a month of ongoing support. Best for steady deal flow without a full-time analyst.</p>
+      </div>
+      <div class="model">
+        <h3>Day rate</h3>
+        <div class="rate">£600–1,500 / day</div>
+        <p>For ad-hoc or overflow work, or a short, intensive push on a live transaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="clients" id="clients">
+  <div class="inner">
+    <p class="section-label fade-in">Who I work with</p>
+    <div class="who-list fade-in">
+      <div class="who-item">
+        <h3>Independent sponsors</h3>
+        <p>Lean by design, raising capital deal-by-deal.</p>
+      </div>
+      <div class="who-item">
+        <h3>Funded &amp; self-funded searchers</h3>
+        <p>Often a team of one, hunting for a business to buy.</p>
+      </div>
+      <div class="who-item">
+        <h3>Small family offices</h3>
+        <p>Doing direct deals without an in-house deal team.</p>
+      </div>
+      <div class="who-item">
+        <h3>SME owners</h3>
+        <p>On a one-off acquisition, sale or raise.</p>
+      </div>
+      <div class="who-item">
+        <h3>Emerging Fund I managers</h3>
+        <p>Before there's a full analyst bench in place.</p>
+      </div>
+      <div class="who-item">
+        <h3>Energy &amp; renewables developers</h3>
+        <p>Solar, storage and transition deals that need structuring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial" id="testimonial">
+  <div class="inner">
+    <div class="testimonial-box fade-in">
+      <blockquote>The deliverables here are perfectly aligned with my expectations. The quality is very high.</blockquote>
+      <p class="testimonial-attr">Managing Partner · Family Office</p>
+      <p class="testimonial-context">On an energy transition deal</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="inner">
+    <p class="section-label fade-in" style="color:var(--gold)">Get in touch</p>
+    <h2 class="section-title fade-in">Let's <em>talk</em></h2>
+    <p class="contact-sub fade-in">If you have a live deal that needs a senior pair of hands on the modelling, valuation, structuring or diligence, I'd be glad to hear about it. The first scoping call is free.</p>
+    <div class="fade-in">
+      <a class="contact-cta" href="mailto:herve@herveky.com">herve@herveky.com →</a>
+      <p class="contact-meta">Hervé Ky · Work delivered remotely · UK &amp; Europe hours</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Hervé Ky.</p>
+  <p>London <span>·</span> Phnom Penh <span>·</span> <a href="/">Back to home</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
