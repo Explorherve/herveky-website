@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance for Founders — Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F7F1E7;
+    --paper: #FFFFFF;
+    --ink: #24211D;
+    --ink-soft: #4A443B;
+    --muted: #8B7F6E;
+    --gold: #BE8A3D;
+    --gold-deep: #A6752F;
+    --forest: #1F3A31;
+    --line: rgba(36,33,29,0.12);
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background: var(--forest); color: var(--cream);
+    font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased;
+    min-height: 100vh; display:flex; flex-direction:column;
+  }
+  h1,h2,.serif{ font-family: 'Fraunces', serif; font-weight: 500; }
+  em{ font-style: italic; color: var(--gold); font-family: 'Fraunces', serif; font-weight: 500; }
+  .wrap{ max-width: 640px; margin: 0 auto; padding: 0 28px; width:100%; }
+
+  header{ padding: 32px 0; }
+  .logo{ font-family:'Fraunces', serif; font-size: 20px; }
+  .logo em{ font-style: normal; }
+
+  main{ flex:1; display:flex; align-items:center; }
+  .hero{ padding: 40px 0 60px; text-align:center; }
+  .eyebrow{
+    font-size: 12px; letter-spacing: 2px; font-weight: 700; color: var(--gold);
+    text-transform: uppercase; display:inline-block; padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold); margin-bottom: 22px;
+  }
+  h1{ font-size: 36px; line-height: 1.3; margin: 0 0 18px; }
+  .lede{
+    font-family:'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: rgba(247,241,231,0.75); font-size: 17px; line-height: 1.65;
+    max-width: 480px; margin: 0 auto 36px;
+  }
+
+  form.signup{ display:flex; gap: 10px; max-width: 420px; margin: 0 auto 14px; }
+  form.signup input[type="email"]{
+    flex:1; padding: 15px 16px; border-radius: 2px; border: 1px solid rgba(247,241,231,0.25);
+    background: rgba(247,241,231,0.06); color: var(--paper); font-family:'Raleway',sans-serif; font-size: 14.5px;
+  }
+  form.signup input[type="email"]::placeholder{ color: rgba(247,241,231,0.5); }
+  .btn{
+    display:inline-block; padding: 15px 26px; font-size: 12.5px; letter-spacing: 1.3px;
+    font-weight: 700; text-transform: uppercase; border-radius: 2px; cursor:pointer;
+    border: none; background: var(--gold); color: var(--paper); transition: background .2s ease;
+    white-space: nowrap;
+  }
+  .btn:hover{ background: var(--gold-deep); }
+  .fine{ font-size: 12px; color: rgba(247,241,231,0.5); }
+  .thanks{ display:none; font-family:'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--gold); }
+
+  ul.outcomes{
+    list-style:none; padding:0; margin: 34px auto 0; max-width: 460px; text-align:left;
+  }
+  ul.outcomes li{
+    padding: 10px 0 10px 26px; border-top: 1px solid rgba(247,241,231,0.12);
+    font-size: 14.5px; color: rgba(247,241,231,0.85); position: relative; line-height: 1.5;
+  }
+  ul.outcomes li:before{
+    content: "—"; position:absolute; left:0; color: var(--gold);
+  }
+
+  @media (max-width: 520px){
+    h1{ font-size: 28px; }
+    form.signup{ flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Hervé<em>.</em></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="eyebrow">For startup founders</span>
+    <h1>No investor will trust you if you <em>don't know your numbers</em>.</h1>
+    <p class="lede">A short course to help you speak your burn rate, your TAM, SAM and SOM, your marketing budget and your GTM story fluently enough to negotiate your valuation with confidence.</p>
+
+    <form class="signup" id="signupForm" action="https://hervky.podia.com/email_lists/1244856/subscriptions" accept-charset="UTF-8" method="post">
+      <input type="email" name="email" required placeholder="you@yourstartup.com" id="emailInput">
+      <button type="submit" class="btn">Join Waitlist</button>
+    </form>
+    <p class="fine">No spam. One email when it opens.</p>
+
+    <ul class="outcomes">
+      <li>Speak with investors about your numbers, confidently</li>
+      <li>Know your market size: TAM, SAM and SOM</li>
+      <li>Budget your marketing spend properly</li>
+      <li>Tell your GTM story in numbers, not just slides</li>
+      <li>Negotiate your valuation and term sheet</li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>
 
