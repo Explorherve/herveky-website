@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial projections model — Hervé Ky</title>
+<meta name="description" content="A free investor-ready financial projections model. Built for founders raising a first round. Enter your email to open the Google Sheet.">
+<link rel="canonical" href="https://herveky.com/financialprojections">
+
+<meta property="og:title" content="Financial projections model">
+<meta property="og:description" content="A free investor-ready projections model, built for founders raising a first round.">
+<meta property="og:url" content="https://herveky.com/financialprojections">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF6EC;
+    --paper-warm:#F2EBD8;
+    --forest:#1B3A2B;
+    --moss:#4A6B57;
+    --gold:#C79A3C;
+    --gold-soft:#E8C978;
+    --rule:#DDD3BA;
+    --grid:#E4DCC6;
+
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Raleway",system-ui,-apple-system,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--forest);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:2.25rem 1.5rem 4rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:1rem;
+    padding-bottom:1.75rem;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .mark{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:.01em;
+    color:var(--forest);
+    text-decoration:none;
+  }
+
+  .mark:hover{color:var(--moss);}
+
+  .masthead p{
+    margin:0;
+    font-size:.9rem;
+    color:var(--moss);
+  }
+
+  /* ---------- layout ---------- */
+
+  .split{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:3rem;
+    padding-top:3.25rem;
+  }
+
+  @media (min-width:900px){
+    .split{
+      grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+      gap:4.5rem;
+      align-items:start;
+      padding-top:4.5rem;
+    }
+  }
+
+  /* ---------- pitch ---------- */
+
+  .pitch{max-width:34rem;}
+
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.1rem,5.2vw,3.05rem);
+    line-height:1.12;
+    letter-spacing:-.015em;
+    margin:0 0 1.15rem;
+    text-wrap:balance;
+  }
+
+  .standfirst{
+    font-size:1.08rem;
+    color:var(--moss);
+    margin:0 0 1rem;
+    max-width:31rem;
+  }
+
+  .pitch .detail{
+    font-size:.97rem;
+    color:var(--moss);
+    margin:0 0 2.25rem;
+    max-width:31rem;
+  }
+
+  /* ---------- form ---------- */
+
+  .gate{
+    border-top:2px solid var(--forest);
+    padding-top:1.5rem;
+  }
+
+  .gate label{
+    display:block;
+    font-size:.9rem;
+    font-weight:600;
+    margin-bottom:.5rem;
+  }
+
+  .field-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.65rem;
+  }
+
+  input[type=email]{
+    flex:1 1 15rem;
+    min-width:0;
+    font-family:inherit;
+    font-size:1rem;
+    color:var(--forest);
+    background:#FFFDF7;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:.78rem .85rem;
+  }
+
+  input[type=email]::placeholder{color:#A69B80;}
+
+  input[type=email]:focus-visible,
+  .btn:focus-visible,
+  a:focus-visible{
+    outline:2px solid var(--forest);
+    outline-offset:2px;
+  }
+
+  .btn{
+    font-family:inherit;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--forest);
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:3px;
+    padding:.78rem 1.4rem;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+
+  .btn:hover{background:var(--gold);}
+
+  .btn[disabled]{opacity:.6;cursor:default;}
+
+  .fineprint{
+    font-size:.85rem;
+    color:var(--moss);
+    margin:.9rem 0 0;
+  }
+
+  .honeypot{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  .error{
+    margin:.85rem 0 0;
+    font-size:.9rem;
+    font-weight:500;
+    color:#8C3A2B;
+  }
+
+  [hidden]{display:none !important;}
+
+  /* ---------- delivered state ---------- */
+
+  .delivered h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.5rem;
+    line-height:1.25;
+    margin:0 0 .7rem;
+  }
+
+  .delivered p{
+    color:var(--moss);
+    font-size:.97rem;
+    margin:0 0 1.4rem;
+    max-width:29rem;
+  }
+
+  .open-link{
+    display:inline-block;
+    font-weight:600;
+    color:var(--forest);
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:3px;
+    padding:.78rem 1.4rem;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+
+  .open-link:hover{background:var(--gold);}
+
+  /* ---------- sheet preview ---------- */
+
+  .sheet{
+    background:#FFFDF7;
+    border:1px solid var(--rule);
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 1px 0 var(--rule);
+  }
+
+  .formula-bar{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    padding:.6rem .85rem;
+    border-bottom:1px solid var(--grid);
+    background:var(--paper-warm);
+    font-size:.82rem;
+    color:var(--moss);
+  }
+
+  .cellref{
+    font-family:var(--serif);
+    font-weight:600;
+    color:var(--forest);
+    padding-right:.7rem;
+    border-right:1px solid var(--grid);
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.86rem;
+    font-variant-numeric:tabular-nums;
+  }
+
+  caption{
+    text-align:left;
+    padding:.9rem .85rem .35rem;
+    font-size:.9rem;
+    font-weight:600;
+    color:var(--forest);
+  }
+
+  th,td{
+    padding:.5rem .6rem;
+    border-bottom:1px solid var(--grid);
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  thead th{
+    background:var(--paper-warm);
+    color:var(--forest);
+    font-weight:600;
+    border-bottom:1px solid var(--rule);
+  }
+
+  th[scope=row]{
+    text-align:left;
+    font-weight:400;
+    color:var(--moss);
+    padding-left:.85rem;
+  }
+
+  tbody tr.total th[scope=row],
+  tbody tr.total td{
+    font-weight:600;
+    color:var(--forest);
+    border-top:2px solid var(--gold);
+  }
+
+  tbody tr:last-child th,
+  tbody tr:last-child td{border-bottom:none;}
+
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.35rem;
+    padding:.7rem .6rem;
+    border-top:1px solid var(--grid);
+    background:var(--paper-warm);
+  }
+
+  .tabs span{
+    font-size:.8rem;
+    color:var(--moss);
+    background:var(--paper);
+    border:1px solid var(--grid);
+    border-radius:3px 3px 0 0;
+    padding:.3rem .6rem;
+  }
+
+  .tabs span.active{
+    color:var(--forest);
+    font-weight:600;
+    background:#FFFDF7;
+    border-bottom-color:#FFFDF7;
+  }
+
+  .caption-note{
+    font-size:.85rem;
+    color:var(--moss);
+    margin:.85rem 0 0;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer{
+    margin-top:4.5rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    font-size:.88rem;
+    color:var(--moss);
+  }
+
+  footer a{color:var(--forest);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a class="mark" href="/">Hervé Ky</a>
+    <p>Free model for founders</p>
+  </header>
+
+  <main class="split">
+
+    <section class="pitch">
+      <h1>The projections model I build for founders raising a first round.</h1>
+
+      <p class="standfirst">
+        Revenue built up from funnel assumptions, not a growth rate you
+        picked because it looked reasonable. CAC, retention and LTV fall
+        out of the same numbers.
+      </p>
+
+      <p class="detail">
+        Change one assumption and the P&amp;L, the monthly burn and the use
+        of funds all move with it. It's the sheet I'd want in front of me
+        if I were reading your deck.
+      </p>
+
+      <div class="gate">
+
+        <form id="gate-form" novalidate>
+          <label for="email">Where should I send it?</label>
+
+          <div class="field-row">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required>
+            <button type="submit" class="btn" id="submit-btn">
+              Get the model
+            </button>
+          </div>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="botcheck" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="error" id="error" role="alert" hidden></p>
+
+          <p class="fineprint">
+            You'll also get the occasional note on financing and deal
+            structure. Unsubscribe any time.
+          </p>
+        </form>
+
+        <div class="delivered" id="delivered" hidden>
+          <h2>It's yours.</h2>
+          <p>
+            The link is also on its way to your inbox. Google will ask you
+            to save your own copy before you can edit anything.
+          </p>
+          <a class="open-link" id="open-link" href="#" target="_blank" rel="noopener">
+            Open the model
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section aria-label="Preview of the model">
+      <div class="sheet">
+
+        <div class="formula-bar">
+          <span class="cellref">C14</span>
+          <span>=C9 * Assumptions!$B$4 * (1 - Assumptions!$B$7)</span>
+        </div>
+
+        <table>
+          <caption>Revenue build — first six months</caption>
+          <thead>
+            <tr>
+              <th scope="col">£</th>
+              <th scope="col">Jan</th>
+              <th scope="col">Feb</th>
+              <th scope="col">Mar</th>
+              <th scope="col">Apr</th>
+              <th scope="col">May</th>
+              <th scope="col">Jun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sessions</th>
+              <td>4,200</td><td>5,460</td><td>7,100</td>
+              <td>9,230</td><td>12,000</td><td>15,600</td>
+            </tr>
+            <tr>
+              <th scope="row">New customers</th>
+              <td>76</td><td>98</td><td>128</td>
+              <td>166</td><td>216</td><td>281</td>
+            </tr>
+            <tr>
+              <th scope="row">Repeat customers</th>
+              <td>—</td><td>23</td><td>52</td>
+              <td>91</td><td>143</td><td>212</td>
+            </tr>
+            <tr>
+              <th scope="row">Revenue</th>
+              <td>3,420</td><td>5,445</td><td>8,100</td>
+              <td>11,565</td><td>16,155</td><td>22,185</td>
+            </tr>
+            <tr>
+              <th scope="row">Cost of sales</th>
+              <td>(1,231)</td><td>(1,960)</td><td>(2,916)</td>
+              <td>(4,163)</td><td>(5,816)</td><td>(7,987)</td>
+            </tr>
+            <tr class="total">
+              <th scope="row">Gross profit</th>
+              <td>2,189</td><td>3,485</td><td>5,184</td>
+              <td>7,402</td><td>10,339</td><td>14,198</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tabs">
+          <span class="active">Revenue build</span>
+          <span>Assumptions</span>
+          <span>P&amp;L</span>
+          <span>Cash flow</span>
+          <span>Use of funds</span>
+        </div>
+
+      </div>
+
+      <p class="caption-note">
+        Five tabs. Every figure traces back to an assumption you set.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      Built by Hervé Ky — ex-BNP Paribas and J.P. Morgan, now advising
+      founders and dealmakers. <a href="/">More at herveky.com</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   CONFIG — one thing to fill in.
+   Paste the /exec URL from your Apps Script deployment.
+   The model's link is NOT stored here: the script hands it back
+   only after the email has been recorded.
+------------------------------------------------------------------ */
+var CONFIG = {
+  endpoint: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+};
+
+(function () {
+  var form      = document.getElementById("gate-form");
+  var emailIn   = document.getElementById("email");
+  var honeypot  = document.getElementById("company");
+  var button    = document.getElementById("submit-btn");
+  var errorBox  = document.getElementById("error");
+  var delivered = document.getElementById("delivered");
+  var openLink  = document.getElementById("open-link");
+
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+  }
+
+  function looksLikeEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+  }
+
+  function reveal() {
+    form.hidden = true;
+    delivered.hidden = false;
+    delivered.querySelector("h2").setAttribute("tabindex", "-1");
+    delivered.querySelector("h2").focus();
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    errorBox.hidden = true;
+
+    if (honeypot.value) { return; }
+
+    var email = emailIn.value.trim();
+
+    if (!looksLikeEmail(email)) {
+      showError("That doesn't look like a working email address.");
+      emailIn.focus();
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Sending…";
+
+    fetch(CONFIG.endpoint, {
+      method: "POST",
+      // text/plain keeps this a "simple" request. Apps Script cannot
+      // answer a CORS preflight, so application/json would fail here.
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      redirect: "follow",
+      body: JSON.stringify({
+        email: email,
+        source: "financialprojections",
+        botcheck: honeypot.value
+      })
+    })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (result.ok && result.url) {
+          openLink.href = result.url;
+          reveal();
+        } else {
+          throw new Error(result.error || "Request failed");
+        }
+      })
+      .catch(function () {
+        button.disabled = false;
+        button.textContent = "Get the model";
+        showError(
+          "That didn't send. Try again, or email herve@herveky.com and " +
+          "I'll pass the link straight over."
+        );
+      });
+  });
+})();
+</script>
+</body>
+</html>
