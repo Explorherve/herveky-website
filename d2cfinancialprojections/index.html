@@ -397,6 +397,9 @@
    Paste the /exec URL from your Apps Script deployment.
    The model's link is NOT stored here: the script hands it back
    only after the email has been recorded.
+
+   The request goes out as a script tag rather than fetch(), because
+   Apps Script on a Workspace domain does not return CORS headers.
 ------------------------------------------------------------------ */
 var CONFIG = {
   endpoint: "https://script.google.com/macros/s/AKfycbyJ8w-yT5DUlPXIpcSxTnj2CoEifjOUfw48Gco9V0z-YhvpiCWj0RWDdGRX8J6vSwnb/exec"
@@ -452,37 +455,77 @@ var CONFIG = {
     button.disabled = true;
     button.textContent = "Sending…";
 
-    fetch(CONFIG.endpoint, {
-      method: "POST",
-      // text/plain keeps this a "simple" request. Apps Script cannot
-      // answer a CORS preflight, so application/json would fail here.
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      redirect: "follow",
-      body: JSON.stringify({
+    send(
+      {
         name: name,
         email: email,
         source: "d2cfinancialprojections",
         botcheck: honeypot.value
-      })
-    })
-      .then(function (response) { return response.json(); })
-      .then(function (result) {
-        if (result.ok && result.url) {
+      },
+      function (result) {
+        if (result && result.ok && result.url) {
           openLink.href = result.url;
           reveal();
         } else {
-          throw new Error(result.error || "Request failed");
+          fail();
         }
-      })
-      .catch(function () {
-        button.disabled = false;
-        button.textContent = "Get free projections template";
-        showError(
-          "That didn't send. Try again, or email herve@herveky.com and " +
-          "I'll pass the link straight over."
-        );
-      });
+      },
+      fail
+    );
   });
+
+  function fail() {
+    button.disabled = false;
+    button.textContent = "Get free projections template";
+    showError(
+      "That didn't send. Try again, or email herve@herveky.com and " +
+      "I'll pass the link straight over."
+    );
+  }
+
+  // JSONP: a script tag is not subject to CORS, so this works against
+  // Apps Script regardless of how the deployment is hosted.
+  function send(params, onSuccess, onFailure) {
+    var callbackName = "ffcb_" + Date.now();
+    var script = document.createElement("script");
+    var timer;
+
+    function cleanup() {
+      try { delete window[callbackName]; }
+      catch (e) { window[callbackName] = undefined; }
+      if (script.parentNode) { script.parentNode.removeChild(script); }
+    }
+
+    window[callbackName] = function (data) {
+      clearTimeout(timer);
+      cleanup();
+      onSuccess(data);
+    };
+
+    var query = "callback=" + callbackName;
+    for (var key in params) {
+      if (Object.prototype.hasOwnProperty.call(params, key)) {
+        query += "&" + encodeURIComponent(key) +
+                 "=" + encodeURIComponent(params[key]);
+      }
+    }
+
+    script.src = CONFIG.endpoint +
+      (CONFIG.endpoint.indexOf("?") > -1 ? "&" : "?") + query;
+
+    script.onerror = function () {
+      clearTimeout(timer);
+      cleanup();
+      onFailure();
+    };
+
+    timer = setTimeout(function () {
+      cleanup();
+      onFailure();
+    }, 20000);
+
+    document.body.appendChild(script);
+  }
 })();
 </script>
 </body>
