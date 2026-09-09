@@ -54,29 +54,17 @@
   /* ---------- masthead ---------- */
 
   .masthead{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:1rem;
     padding-bottom:1.75rem;
     border-bottom:1px solid var(--rule);
   }
 
   .mark{
+    margin:0;
     font-family:var(--serif);
     font-size:1.05rem;
     font-weight:600;
     letter-spacing:.01em;
     color:var(--forest);
-    text-decoration:none;
-  }
-
-  .mark:hover{color:var(--moss);}
-
-  .masthead p{
-    margin:0;
-    font-size:.9rem;
-    color:var(--moss);
   }
 
   /* ---------- pitch ---------- */
@@ -88,11 +76,13 @@
   }
 
   .eyebrow{
-    font-size:.92rem;
+    font-size:.78rem;
     font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
     color:var(--moss);
-    letter-spacing:.02em;
     margin:0 0 .9rem;
+    text-align:center;
   }
 
   .points{
@@ -126,7 +116,9 @@
     font-size:clamp(2.2rem,6vw,3.1rem);
     line-height:1.12;
     letter-spacing:-.015em;
-    margin:0 0 1.3rem;
+    margin:0 auto 1.9rem;
+    max-width:30rem;
+    text-align:center;
     text-wrap:balance;
   }
 
@@ -146,44 +138,61 @@
 
   /* ---------- form ---------- */
 
-  .bio{
+  .gate{
+    margin-top:1rem;
+    padding:3rem 1.5rem;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    background-color:#FFFDF7;
+    background-image:radial-gradient(var(--rule) 1.2px, transparent 1.2px);
+    background-size:22px 22px;
+    text-align:center;
+  }
+
+  .gate-inner{
+    max-width:24rem;
+    margin:0 auto;
+  }
+
+  .gate-eyebrow{
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin:0 0 .7rem;
+  }
+
+  .gate h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(1.8rem,5vw,2.3rem);
+    line-height:1.15;
+    letter-spacing:-.015em;
+    margin:0 0 .8rem;
+  }
+
+  .gate .lede{
     font-size:1rem;
     color:var(--moss);
-    margin:0 0 2.5rem;
-    padding-left:1.1rem;
-    border-left:2px solid var(--gold);
-    max-width:33rem;
-  }
-
-  .bio a{
-    color:var(--forest);
-    font-weight:600;
-    text-decoration:none;
-    border-bottom:1px solid var(--gold);
-  }
-
-  .bio a:hover{border-bottom-width:2px;}
-
-  .gate{
-    border-top:2px solid var(--forest);
-    padding-top:1.6rem;
+    margin:0 0 2.25rem;
   }
 
   .gate label{
     display:block;
-    font-size:.95rem;
+    text-align:left;
+    font-size:.76rem;
     font-weight:600;
-    margin-bottom:.55rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin-bottom:.5rem;
   }
 
   .fields{
     display:grid;
-    gap:1.05rem;
-    margin-bottom:1.15rem;
-  }
-
-  @media (min-width:560px){
-    .fields{grid-template-columns:1fr 1fr;}
+    gap:1.25rem;
+    margin-bottom:1.5rem;
   }
 
   input[type=email],
@@ -195,8 +204,8 @@
     color:var(--forest);
     background:#FFFDF7;
     border:1px solid var(--rule);
-    border-radius:3px;
-    padding:.8rem .9rem;
+    border-radius:6px;
+    padding:.95rem 1rem;
   }
 
   input::placeholder{color:#A69B80;}
@@ -209,14 +218,17 @@
   }
 
   .btn{
+    width:100%;
     font-family:inherit;
-    font-size:1rem;
+    font-size:.92rem;
     font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
     color:var(--forest);
     background:var(--gold-soft);
     border:1px solid var(--gold);
-    border-radius:3px;
-    padding:.8rem 1.5rem;
+    border-radius:999px;
+    padding:1.05rem 1.5rem;
     cursor:pointer;
     transition:background .15s ease;
   }
@@ -255,18 +267,20 @@
   .delivered p{
     color:var(--moss);
     font-size:1rem;
-    margin:0 0 1.5rem;
-    max-width:29rem;
+    margin:0 0 1.75rem;
   }
 
   .open-link{
     display:inline-block;
+    font-size:.92rem;
     font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
     color:var(--forest);
     background:var(--gold-soft);
     border:1px solid var(--gold);
-    border-radius:3px;
-    padding:.8rem 1.5rem;
+    border-radius:999px;
+    padding:1.05rem 2rem;
     text-decoration:none;
     transition:background .15s ease;
   }
@@ -293,8 +307,7 @@
 <div class="wrap">
 
   <header class="masthead">
-    <a class="mark" href="/">Finance for Founders</a>
-    <p>Free model for D2C founders</p>
+    <p class="mark">Finance for Founders</p>
   </header>
 
   <main class="pitch">
@@ -323,14 +336,14 @@
       ask for, so you take investor calls with confidence.
     </p>
 
-    <p class="bio">
-      I'm <a href="https://www.linkedin.com/in/herve-ky" target="_blank" rel="noopener">Hervé</a>, ex investment banker at J.P. Morgan, where
-      my job was to
-      raise money for large companies. More recently I raised for my
-      own startup.
-    </p>
-
     <div class="gate">
+     <div class="gate-inner">
+
+      <p class="gate-eyebrow">Almost there</p>
+      <h2>Get the financial projections template</h2>
+      <p class="lede">
+        Drop your details below and I'll send it straight over.
+      </p>
 
       <form id="gate-form" novalidate>
         <div class="fields">
@@ -374,14 +387,16 @@
       <div class="delivered" id="delivered" hidden>
         <h2>It's yours.</h2>
         <p>
-          The link is also on its way to your inbox. Google will ask you
-          to save your own copy before you can edit anything.
+          A copy is on its way to your inbox too — check your spam folder
+          if it hasn't landed in a minute. Google will ask you to save
+          your own copy before you can edit anything.
         </p>
         <a class="open-link" id="open-link" href="#" target="_blank" rel="noopener">
           Open the model
         </a>
       </div>
 
+     </div>
     </div>
   </main>
 
