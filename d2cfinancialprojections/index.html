@@ -385,13 +385,13 @@
       </form>
 
       <div class="delivered" id="delivered" hidden>
-        <h2>It's yours.</h2>
-        <p>
-          A copy is on its way to your inbox too — check your spam folder
+        <h2>It's on its way.</h2>
+        <p id="delivered-copy">
+          I've sent the template to your inbox — check your spam folder
           if it hasn't landed in a minute. Google will ask you to save
           your own copy before you can edit anything.
         </p>
-        <a class="open-link" id="open-link" href="#" target="_blank" rel="noopener">
+        <a class="open-link" id="open-link" href="#" target="_blank" rel="noopener" hidden>
           Open the model
         </a>
       </div>
@@ -408,16 +408,22 @@
 
 <script>
 /* ------------------------------------------------------------------
-   CONFIG — one thing to fill in.
-   Paste the /exec URL from your Apps Script deployment.
-   The model's link is NOT stored here: the script hands it back
-   only after the email has been recorded.
+   CONFIG
 
-   The request goes out as a script tag rather than fetch(), because
-   Apps Script on a Workspace domain does not return CORS headers.
+   endpoint — the /exec URL from your Apps Script deployment.
+
+   modelUrl — optional. Leave it empty and the template arrives by
+   email only, which keeps the link gated behind a real address. Paste
+   the /copy link in and visitors also get an instant "Open the model"
+   button — faster, but the link is then readable in the page source.
+
+   The request goes out as a POST in no-cors mode. Nothing tries to
+   parse the response, so there is no CORS preflight, no redirect for a
+   script tag to follow, and nothing for Chrome's ORB to block.
 ------------------------------------------------------------------ */
 var CONFIG = {
-  endpoint: "https://script.google.com/macros/s/AKfycbyJ8w-yT5DUlPXIpcSxTnj2CoEifjOUfw48Gco9V0z-YhvpiCWj0RWDdGRX8J6vSwnb/exec"
+  endpoint: "https://script.google.com/macros/s/AKfycbyJ8w-yT5DUlPXIpcSxTnj2CoEifjOUfw48Gco9V0z-YhvpiCWj0RWDdGRX8J6vSwnb/exec",
+  modelUrl: "https://docs.google.com/spreadsheets/d/1RDdCM4JJJwbOTrV_P6_XOag9WB8TiZCC9thaKbuKd0w/copy"
 };
 
 (function () {
@@ -428,6 +434,7 @@ var CONFIG = {
   var button    = document.getElementById("submit-btn");
   var errorBox  = document.getElementById("error");
   var delivered = document.getElementById("delivered");
+  var copy      = document.getElementById("delivered-copy");
   var openLink  = document.getElementById("open-link");
 
   function showError(message) {
@@ -439,7 +446,17 @@ var CONFIG = {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
   }
 
-  function reveal() {
+  function reveal(email) {
+    copy.textContent =
+      "I've sent the template to " + email + " — check your spam folder " +
+      "if it hasn't landed in a minute. Google will ask you to save your " +
+      "own copy before you can edit anything.";
+
+    if (CONFIG.modelUrl) {
+      openLink.href = CONFIG.modelUrl;
+      openLink.hidden = false;
+    }
+
     form.hidden = true;
     delivered.hidden = false;
     delivered.querySelector("h2").setAttribute("tabindex", "-1");
@@ -477,14 +494,7 @@ var CONFIG = {
         source: "d2cfinancialprojections",
         botcheck: honeypot.value
       },
-      function (result) {
-        if (result && result.ok && result.url) {
-          openLink.href = result.url;
-          reveal();
-        } else {
-          fail();
-        }
-      },
+      function () { reveal(email); },
       fail
     );
   });
@@ -498,48 +508,30 @@ var CONFIG = {
     );
   }
 
-  // JSONP: a script tag is not subject to CORS, so this works against
-  // Apps Script regardless of how the deployment is hosted.
+  /* A no-cors POST. The response is opaque — res.ok is always false and
+     res.status is always 0 — so there is nothing to inspect. A resolved
+     promise means the request left the browser; only a genuine network
+     failure rejects. Server-side problems are invisible here, which is
+     why the sheet is the thing to watch. */
   function send(params, onSuccess, onFailure) {
-    var callbackName = "ffcb_" + Date.now();
-    var script = document.createElement("script");
-    var timer;
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 20000);
 
-    function cleanup() {
-      try { delete window[callbackName]; }
-      catch (e) { window[callbackName] = undefined; }
-      if (script.parentNode) { script.parentNode.removeChild(script); }
-    }
-
-    window[callbackName] = function (data) {
+    fetch(CONFIG.endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(params),
+      signal: controller.signal
+    })
+    .then(function () {
       clearTimeout(timer);
-      cleanup();
-      onSuccess(data);
-    };
-
-    var query = "callback=" + callbackName;
-    for (var key in params) {
-      if (Object.prototype.hasOwnProperty.call(params, key)) {
-        query += "&" + encodeURIComponent(key) +
-                 "=" + encodeURIComponent(params[key]);
-      }
-    }
-
-    script.src = CONFIG.endpoint +
-      (CONFIG.endpoint.indexOf("?") > -1 ? "&" : "?") + query;
-
-    script.onerror = function () {
+      onSuccess();
+    })
+    .catch(function () {
       clearTimeout(timer);
-      cleanup();
       onFailure();
-    };
-
-    timer = setTimeout(function () {
-      cleanup();
-      onFailure();
-    }, 20000);
-
-    document.body.appendChild(script);
+    });
   }
 })();
 </script>
