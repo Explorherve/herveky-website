@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Know your numbers for your first $500k raise — Finance for Founders</title>
+<meta name="description" content="Prepare every number an investor can ask for, so you take investor calls with confidence. Free projections template for D2C founders.">
+<link rel="canonical" href="https://herveky.com/d2cfinancialprojections">
+
+<meta property="og:title" content="Know your numbers for your first $500k raise">
+<meta property="og:description" content="Prepare every number an investor can ask for. Free projections template for D2C founders.">
+<meta property="og:url" content="https://herveky.com/d2cfinancialprojections">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FAF6EC;
+    --forest:#1B3A2B;
+    --moss:#4A6B57;
+    --gold:#C79A3C;
+    --gold-soft:#E8C978;
+    --rule:#DDD3BA;
+
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Raleway",system-ui,-apple-system,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--forest);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:38rem;
+    margin:0 auto;
+    padding:2.25rem 1.5rem 4rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:1rem;
+    padding-bottom:1.75rem;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .mark{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:.01em;
+    color:var(--forest);
+    text-decoration:none;
+  }
+
+  .mark:hover{color:var(--moss);}
+
+  .masthead p{
+    margin:0;
+    font-size:.9rem;
+    color:var(--moss);
+  }
+
+  /* ---------- pitch ---------- */
+
+  .pitch{padding-top:4rem;}
+
+  @media (min-width:700px){
+    .pitch{padding-top:5.5rem;}
+  }
+
+  .eyebrow{
+    font-size:.92rem;
+    font-weight:600;
+    color:var(--moss);
+    letter-spacing:.02em;
+    margin:0 0 .9rem;
+  }
+
+  .points{
+    list-style:none;
+    padding:0;
+    margin:0 0 1.9rem;
+    max-width:33rem;
+  }
+
+  .points li{
+    position:relative;
+    padding-left:1.5rem;
+    margin-bottom:.9rem;
+    font-size:1rem;
+    color:var(--moss);
+  }
+
+  .points li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:.72em;
+    width:.6rem;
+    height:2px;
+    background:var(--gold);
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.2rem,6vw,3.1rem);
+    line-height:1.12;
+    letter-spacing:-.015em;
+    margin:0 0 1.3rem;
+    text-wrap:balance;
+  }
+
+  .standfirst{
+    font-size:1.1rem;
+    color:var(--moss);
+    margin:0 0 1rem;
+    max-width:33rem;
+  }
+
+  .pitch .detail{
+    font-size:1rem;
+    color:var(--moss);
+    margin:0 0 2.75rem;
+    max-width:33rem;
+  }
+
+  /* ---------- form ---------- */
+
+  .bio{
+    font-size:1rem;
+    color:var(--moss);
+    margin:0 0 2.5rem;
+    padding-left:1.1rem;
+    border-left:2px solid var(--gold);
+    max-width:33rem;
+  }
+
+  .bio a{
+    color:var(--forest);
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+  }
+
+  .bio a:hover{border-bottom-width:2px;}
+
+  .gate{
+    border-top:2px solid var(--forest);
+    padding-top:1.6rem;
+  }
+
+  .gate label{
+    display:block;
+    font-size:.95rem;
+    font-weight:600;
+    margin-bottom:.55rem;
+  }
+
+  .fields{
+    display:grid;
+    gap:1.05rem;
+    margin-bottom:1.15rem;
+  }
+
+  @media (min-width:560px){
+    .fields{grid-template-columns:1fr 1fr;}
+  }
+
+  input[type=email],
+  input[type=text].real{
+    width:100%;
+    min-width:0;
+    font-family:inherit;
+    font-size:1rem;
+    color:var(--forest);
+    background:#FFFDF7;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:.8rem .9rem;
+  }
+
+  input::placeholder{color:#A69B80;}
+
+  input:focus-visible,
+  .btn:focus-visible,
+  a:focus-visible{
+    outline:2px solid var(--forest);
+    outline-offset:2px;
+  }
+
+  .btn{
+    font-family:inherit;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--forest);
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:3px;
+    padding:.8rem 1.5rem;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+
+  .btn:hover{background:var(--gold);}
+
+  .btn[disabled]{opacity:.6;cursor:default;}
+
+  .honeypot{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  .error{
+    margin:.9rem 0 0;
+    font-size:.9rem;
+    font-weight:500;
+    color:#8C3A2B;
+  }
+
+  [hidden]{display:none !important;}
+
+  /* ---------- delivered state ---------- */
+
+  .delivered h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.6rem;
+    line-height:1.25;
+    margin:0 0 .75rem;
+  }
+
+  .delivered p{
+    color:var(--moss);
+    font-size:1rem;
+    margin:0 0 1.5rem;
+    max-width:29rem;
+  }
+
+  .open-link{
+    display:inline-block;
+    font-weight:600;
+    color:var(--forest);
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:3px;
+    padding:.8rem 1.5rem;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+
+  .open-link:hover{background:var(--gold);}
+
+  footer{
+    margin-top:5rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    font-size:.85rem;
+    color:var(--moss);
+  }
+
+  footer p{margin:0;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <a class="mark" href="/">Finance for Founders</a>
+    <p>Free model for D2C founders</p>
+  </header>
+
+  <main class="pitch">
+
+    <p class="eyebrow">For founders of D2C startups</p>
+
+    <h1>Know your numbers for your first $500k raise.</h1>
+
+    <ul class="points">
+      <li>
+        Know how to back up all your plans for growth, with a defensible
+        number.
+      </li>
+      <li>
+        Create models and projections that, even without your deck,
+        describe how your business works.
+      </li>
+      <li>
+        Learn how to calculate the typical metrics investors look for in
+        your model, like CAC, LTV, conversion rate and retention rate.
+      </li>
+    </ul>
+
+    <p class="detail">
+      In other words, learn how to prepare every number an investor can
+      ask for, so you take investor calls with confidence.
+    </p>
+
+    <p class="bio">
+      I'm <a href="https://www.linkedin.com/in/herve-ky" target="_blank" rel="noopener">Hervé</a>, ex investment banker at J.P. Morgan, where
+      my job was to
+      raise money for large companies. More recently I raised for my
+      own startup.
+    </p>
+
+    <div class="gate">
+
+      <form id="gate-form" novalidate>
+        <div class="fields">
+          <div>
+            <label for="name">Your name</label>
+            <input
+              type="text"
+              class="real"
+              id="name"
+              name="name"
+              placeholder="Jane"
+              autocomplete="given-name"
+              required>
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="submit-btn">
+          Get free projections template
+        </button>
+
+        <div class="honeypot" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="error" id="error" role="alert" hidden></p>
+
+      </form>
+
+      <div class="delivered" id="delivered" hidden>
+        <h2>It's yours.</h2>
+        <p>
+          The link is also on its way to your inbox. Google will ask you
+          to save your own copy before you can edit anything.
+        </p>
+        <a class="open-link" id="open-link" href="#" target="_blank" rel="noopener">
+          Open the model
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Finance for Founders</p>
+  </footer>
+
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   CONFIG — one thing to fill in.
+   Paste the /exec URL from your Apps Script deployment.
+   The model's link is NOT stored here: the script hands it back
+   only after the email has been recorded.
+------------------------------------------------------------------ */
+var CONFIG = {
+  endpoint: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+};
+
+(function () {
+  var form      = document.getElementById("gate-form");
+  var nameIn    = document.getElementById("name");
+  var emailIn   = document.getElementById("email");
+  var honeypot  = document.getElementById("company");
+  var button    = document.getElementById("submit-btn");
+  var errorBox  = document.getElementById("error");
+  var delivered = document.getElementById("delivered");
+  var openLink  = document.getElementById("open-link");
+
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+  }
+
+  function looksLikeEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+  }
+
+  function reveal() {
+    form.hidden = true;
+    delivered.hidden = false;
+    delivered.querySelector("h2").setAttribute("tabindex", "-1");
+    delivered.querySelector("h2").focus();
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    errorBox.hidden = true;
+
+    if (honeypot.value) { return; }
+
+    var name  = nameIn.value.trim();
+    var email = emailIn.value.trim();
+
+    if (!name) {
+      showError("Your name, so I know who I'm sending it to.");
+      nameIn.focus();
+      return;
+    }
+
+    if (!looksLikeEmail(email)) {
+      showError("That doesn't look like a working email address.");
+      emailIn.focus();
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Sending…";
+
+    fetch(CONFIG.endpoint, {
+      method: "POST",
+      // text/plain keeps this a "simple" request. Apps Script cannot
+      // answer a CORS preflight, so application/json would fail here.
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      redirect: "follow",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        source: "d2cfinancialprojections",
+        botcheck: honeypot.value
+      })
+    })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (result.ok && result.url) {
+          openLink.href = result.url;
+          reveal();
+        } else {
+          throw new Error(result.error || "Request failed");
+        }
+      })
+      .catch(function () {
+        button.disabled = false;
+        button.textContent = "Get free projections template";
+        showError(
+          "That didn't send. Try again, or email herve@herveky.com and " +
+          "I'll pass the link straight over."
+        );
+      });
+  });
+})();
+</script>
+</body>
+</html>
