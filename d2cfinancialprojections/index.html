@@ -297,6 +297,17 @@
 
   footer p{margin:0;}
 
+  .contact{margin:0 0 .8rem !important;}
+
+  .contact a{
+    color:var(--forest);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    transition:border-color .15s ease;
+  }
+
+  .contact a:hover{border-color:var(--forest);}
+
   @media (prefers-reduced-motion:reduce){
     *{transition:none !important;}
   }
@@ -401,6 +412,12 @@
   </main>
 
   <footer>
+    <p class="contact">
+      Got a question about the finance part of your startup? Email
+      <a href="mailto:herve@herveky.com">herve@herveky.com</a>
+      or find me on
+      <a href="https://www.linkedin.com/in/herve-ky" target="_blank" rel="noopener">LinkedIn</a>.
+    </p>
     <p>&copy; 2026 Finance for Founders</p>
   </footer>
 
