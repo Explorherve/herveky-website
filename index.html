@@ -834,7 +834,7 @@
     padding-bottom:.45rem;
     border-bottom:2px solid var(--gold);
   }
-  .pitch > .eyebrow{ display:table; margin-left:auto; margin-right:auto; }
+  .hero-text > .eyebrow{ display:table; margin-left:auto; margin-right:auto; }
   .cta-link, .btn, .open-link, .topbar-cta{
     background:var(--gold) !important;
     border-color:var(--gold) !important;
@@ -847,7 +847,7 @@
   .gate{ background-image:radial-gradient(rgba(246,241,232,.08) 1.2px, transparent 1.2px) !important; }
   .review-mark{ color:var(--gold) !important; opacity:.45 !important; }
 
-  .pitch > .standfirst{ text-align:center; margin-left:auto; margin-right:auto; text-wrap:balance; }
+  .hero-text > .standfirst{ text-align:center; margin-left:auto; margin-right:auto; text-wrap:balance; }
 
   /* ---------- storytelling: centred & compact ---------- */
   section.storytelling-section{
@@ -868,6 +868,64 @@
   .storytelling-section .steps-list li{ margin:0 0 .6rem; }
   .storytelling-section .steps-list li:last-child{ margin-bottom:0; }
   .storytelling-section .cta-link{ margin:0; }
+
+  /* ---------- hero: text left, photo right ---------- */
+  .hero{
+    display:grid;
+    gap:2.5rem;
+    padding-bottom:4rem;
+  }
+  .hero-text .cta-link{ margin-bottom:0; }
+  .hero-photo{
+    display:block;
+    text-decoration:none;
+    max-width:26rem;
+    margin:0 auto;
+  }
+  .hero-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:56% 30%;
+    border-radius:16px;
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  .hero-caption{
+    display:block;
+    margin-top:.9rem;
+    font-size:.85rem;
+    line-height:1.45;
+    color:var(--moss);
+    text-align:center;
+  }
+  .hero-caption strong{ color:var(--forest); }
+  .hero-photo:hover .hero-caption strong{ color:var(--gold); }
+
+  @media (max-width:899px){
+    .hero-photo img{ aspect-ratio:1/1; max-height:22rem; }
+  }
+
+  @media (min-width:900px){
+    .hero{
+      width:min(64rem, calc(100vw - 2 * var(--gutter)));
+      position:relative;
+      left:50%;
+      transform:translateX(-50%);
+      grid-template-columns:3fr 1fr;
+      gap:3.5rem;
+      align-items:center;
+    }
+    .hero-text{ text-align:left; }
+    .hero-text .eyebrow{ text-align:left; }
+    .hero-text > .eyebrow{ display:inline-block; margin-left:0; margin-right:0; }
+    .hero-text h1{ text-align:left; margin-left:0; max-width:none; }
+    .hero-text .standfirst{ text-align:left; margin-left:0; text-wrap:pretty; }
+    .hero-text .cta-row{ text-align:left; }
+    .hero-photo{ max-width:none; margin:0; }
+  }
+
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -894,15 +952,23 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
 
   <main class="pitch">
 
-    <p class="eyebrow">For founders of D2C startups</p>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">For founders of D2C startups</p>
 
-    <h1>Know your numbers for your <span class="accent">pre-seed $500k raise</span>.</h1>
+        <h1>Know your numbers for your <span class="accent"><span style="white-space:nowrap">pre-seed</span> $500k raise</span>.</h1>
 
-    <p class="standfirst">
-      If you've come to this site, you're likely struggling to get your numbers right. I'm here to help you prepare every number an investor can ask for.
-    </p>
+        <p class="standfirst">
+          If you've come to this site, you're likely struggling to get your numbers right. I'm here to help you prepare every number an investor can ask for.
+        </p>
 
-    <div class="cta-row"><a href="#gate-section" class="cta-link">Get help to know your numbers</a></div>
+        <div class="cta-row"><a href="#gate-section" class="cta-link">Get help to know your numbers</a></div>
+      </div>
+
+      <a href="#about" class="hero-photo">
+        <img src="/herve.jpg" alt="Hervé Ky" width="1280" height="853">
+      </a>
+    </div>
 
     <section class="pain-section band-tint">
       <h2 class="section-title">I understand the pain and frustration of trying to <span class="accent">get your numbers right</span>.</h2>
