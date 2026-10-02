@@ -7,7 +7,7 @@
 <meta name="description" content="Prepare every number an investor can ask for, so you take investor calls with confidence. Free projections template for D2C founders.">
 <link rel="canonical" href="https://herveky.com/">
 
-<meta property="og:title" content="Know your numbers for your pre-seed $500k raise">
+<meta property="og:title" content="Know your numbers for your pre-seed £500k raise">
 <meta property="og:description" content="Prepare every number an investor can ask for. Free projections template for D2C founders.">
 <meta property="og:url" content="https://herveky.com/">
 <meta property="og:type" content="website">
@@ -752,7 +752,7 @@
 
   /* ---------- top banner ---------- */
   html{ scroll-behavior:smooth; }
-  #about,#contact,#gate-section,#top{ scroll-margin-top:5.5rem; }
+  #about,#contact,#gate-section,#first-step,#top{ scroll-margin-top:5.5rem; }
 
   .topbar{
     position:sticky;
@@ -822,7 +822,7 @@
     .topbar .mark{ font-size:.95rem; }
     .topnav{ gap:1.1rem; }
     .topbar-cta{ padding:.45rem .9rem; font-size:.72rem !important; }
-    #about,#contact,#gate-section,#top{ scroll-margin-top:7rem; }
+    #about,#contact,#gate-section,#first-step,#top{ scroll-margin-top:7rem; }
   }
 
   .wrap{ padding-top:0 !important; }
@@ -936,6 +936,20 @@
     color:var(--gold);
     margin-left:.2rem;
   }
+
+  .urgency-highlight{ font-weight:400 !important; }
+  .urgency-highlight .accent{ font-weight:600; }
+
+  .urgency-highlight{
+    width:min(52rem, calc(100vw - 2 * var(--gutter)));
+    max-width:none !important;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    margin-left:0 !important;
+    margin-right:0 !important;
+    text-wrap:pretty !important;
+  }
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -966,13 +980,13 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
       <div class="hero-text">
         <p class="eyebrow">For founders of D2C startups</p>
 
-        <h1>Know your numbers for your <span class="accent"><span style="white-space:nowrap">pre-seed</span> $500k raise</span>.</h1>
+        <h1>Know your numbers for your <span class="accent"><span style="white-space:nowrap">pre-seed</span> £500k raise</span>.</h1>
 
         <p class="standfirst">
           If you've come to this site, you're likely struggling to get your numbers right. I'm here to help you prepare every number an investor can ask for.
         </p>
 
-        <div class="cta-row"><a href="#gate-section" class="cta-link">Get help to know your numbers</a></div>
+        <div class="cta-row"><a href="#first-step" class="cta-link">Get help to know your numbers</a></div>
       </div>
 
       <a href="#about" class="hero-photo">
@@ -1006,10 +1020,10 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
 
     <section class="urgency-section band-plain">
       <p class="urgency-highlight">
-        At a pre-seed stage, where you are investing your money into your business, knowing your numbers is <span class="accent">critical</span>.
+        At the pre-seed stage, when you are investing your own money in your business, knowing your numbers is <span class="accent">critical</span>.
       </p>
       <p class="urgency-highlight">
-        If investors are confused by your numbers, you will hear: <span class="accent">&ldquo;You are too early&rdquo;</span>
+        If investors are confused by your numbers, you will keep hearing: <span class="accent">&ldquo;You are too early&rdquo;</span>
       </p>
     </section>
 
@@ -1020,10 +1034,10 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
         <li>Decide your story</li>
         <li>Make your numbers tell it</li>
       </ul>
-      <div class="cta-row"><a href="#gate-section" class="cta-link">Get started</a></div>
+      <div class="cta-row"><a href="#first-step" class="cta-link">Get started</a></div>
     </section>
 
-    <section class="benefits-section band-plain">
+    <section class="benefits-section band-plain" id="first-step">
       <h2 class="section-title" style="font-family:var(--sans); font-weight:700; font-size:clamp(1.8rem,5vw,2.2rem);">Here's the first step: <span class="accent">download my free template</span></h2>
       <ul class="points">
         <li>Know how to back up all your plans for growth, with defensible numbers</li>
@@ -1434,7 +1448,7 @@ var CONFIG = {
   }
 })();
 /* CTA click tracking */
-document.querySelectorAll('a[href="#gate-section"]').forEach(function (a) {
+document.querySelectorAll('a[href="#gate-section"], a[href="#first-step"]').forEach(function (a) {
   a.addEventListener("click", function () {
     if (!window.posthog) return;
     var where = a.closest(".topbar") ? "banner" :
