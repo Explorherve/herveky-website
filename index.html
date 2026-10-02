@@ -966,6 +966,28 @@
 
   .gate-band{ padding-bottom:4.5rem; }
   .gate-band .gate{ margin:0 !important; }
+
+  /* ---------- dark green hero only ---------- */
+  .pitch{ padding-top:0 !important; }
+  .hero{
+    --forest:#F6F1E8;
+    --moss:#CDD0C6;
+    background:#253931;
+    box-shadow:0 0 0 100vmax #253931;
+    clip-path:inset(0 -100vmax);
+    padding-top:4.5rem;
+    padding-bottom:4.5rem !important;
+  }
+  .hero h1{ color:#F6F1E8; }
+  .hero .standfirst{ color:#CDD0C6; }
+  .hero .cta-link{ color:#253931 !important; }
+  .hero-photo img{ box-shadow:0 18px 40px rgba(0,0,0,.35) !important; }
+
+  .band-white{
+    background:#FFFFFF !important;
+    box-shadow:0 0 0 100vmax #FFFFFF;
+    clip-path:inset(0 -100vmax);
+  }
 </style>
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -1010,7 +1032,7 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
       </a>
     </div>
 
-    <section class="pain-section band-tint">
+    <section class="pain-section band-white">
       <h2 class="section-title">I understand the pain and frustration of trying to <span class="accent">get your numbers right</span>.</h2>
       <div class="pain-grid">
         <div class="pain-item">
@@ -1120,64 +1142,13 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
 
 
 
-    <section class="about-section band-tint" id="about">
+    <section class="about-section band-white" id="about">
       <div class="about-text">
         <h2>Hi, I'm Hervé.</h2>
         <p>I was an investment banker for almost a decade at J.P. Morgan and BNP Paribas. There I raised money for big companies. Recently, I co-founded a startup, and raised money for it as well.</p>
         <p>In both cases I used one principle: financial storytelling. Today I teach this principle to help you raise money for your business.</p>
       </div>
       <div class="about-photo"><img src="/herve.jpg" alt="Hervé" width="1280" height="853" loading="lazy"></div>
-    </section>
-    <section class="email-series-section band-plain">
-      <h2>Free startup-finance insights</h2>
-      <p class="series-description">
-        Get 5 emails to deepen your financial storytelling skills. Join hundreds of pre-seed founders who are mastering their numbers.
-      </p>
-      <form id="email-series-form" class="email-form" novalidate>
-        <div class="fields">
-          <div>
-            <label for="series-name">Your name</label>
-            <input
-              type="text"
-              class="real"
-              id="series-name"
-              name="name"
-              placeholder="Jane"
-              autocomplete="given-name"
-              required>
-          </div>
-
-          <div>
-            <label for="series-email">Email address</label>
-            <input
-              type="email"
-              id="series-email"
-              name="email"
-              placeholder="you@company.com"
-              autocomplete="email"
-              required>
-          </div>
-        </div>
-
-        <button type="submit" class="btn" id="series-submit-btn">
-          Get the insights
-        </button>
-
-        <div class="honeypot" aria-hidden="true">
-          <label for="series-company">Company</label>
-          <input type="text" id="series-company" name="botcheck" tabindex="-1" autocomplete="off">
-        </div>
-
-        <p class="error" id="series-error" role="alert" hidden></p>
-
-      </form>
-
-      <div class="delivered" id="series-delivered" hidden>
-        <h2>Check your inbox.</h2>
-        <p>
-          I've sent the first email — check your spam folder if it hasn't landed in a minute.
-        </p>
-      </div>
     </section>
 
   </main>
@@ -1329,104 +1300,6 @@ var CONFIG = {
   }
 })();
 
-/* Email series form handling */
-(function () {
-  var form      = document.getElementById("email-series-form");
-  var nameIn    = document.getElementById("series-name");
-  var emailIn   = document.getElementById("series-email");
-  var honeypot  = document.getElementById("series-company");
-  var button    = document.getElementById("series-submit-btn");
-  var errorBox  = document.getElementById("series-error");
-  var delivered = document.getElementById("series-delivered");
-
-  function showError(message) {
-    errorBox.textContent = message;
-    errorBox.hidden = false;
-  }
-
-  function looksLikeEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-  }
-
-  function reveal(email) {
-    form.hidden = true;
-    delivered.hidden = false;
-    delivered.querySelector("h2").setAttribute("tabindex", "-1");
-    delivered.querySelector("h2").focus();
-  }
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    errorBox.hidden = true;
-
-    if (honeypot.value) { return; }
-
-    var name  = nameIn.value.trim();
-    var email = emailIn.value.trim();
-
-    if (!name) {
-      showError("Your name, so I know who I'm sending it to.");
-      nameIn.focus();
-      return;
-    }
-
-    if (!looksLikeEmail(email)) {
-      showError("That doesn't look like a working email address.");
-      emailIn.focus();
-      return;
-    }
-
-    button.disabled = true;
-    button.textContent = "Sending…";
-
-    send(
-      {
-        name: name,
-        email: email,
-        source: "d2cfinancialprojections-series",
-        botcheck: honeypot.value
-      },
-      function () {
-        if (window.posthog) {
-          posthog.identify(email, { email: email, name: name });
-          posthog.capture("insights_signup_submitted", { form: "insights" });
-        }
-        reveal(email);
-      },
-      fail
-    );
-  });
-
-  function fail() {
-    button.disabled = false;
-    button.textContent = "Get the insights";
-    showError(
-      "That didn't send. Try again, or email herve@herveky.com and " +
-      "I'll pass the emails straight over."
-    );
-  }
-
-  function send(params, onSuccess, onFailure) {
-    var controller = new AbortController();
-    var timer = setTimeout(function () { controller.abort(); }, 20000);
-
-    fetch(CONFIG.endpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(params),
-      signal: controller.signal
-    })
-    .then(function () {
-      clearTimeout(timer);
-      onSuccess();
-    })
-    .catch(function () {
-      clearTimeout(timer);
-      onFailure();
-    });
-  }
-})();
 /* CTA click tracking */
 document.querySelectorAll('a[href="#gate-section"], a[href="#first-step"]').forEach(function (a) {
   a.addEventListener("click", function () {
