@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -26,6 +26,7 @@
     --gold:#C79A3C;
     --gold-soft:#E8C978;
     --rule:#DDD3BA;
+    --gutter:1.5rem;
 
     --serif:"Fraunces",Georgia,serif;
     --sans:"Raleway",system-ui,-apple-system,sans-serif;
@@ -45,11 +46,25 @@
     -webkit-font-smoothing:antialiased;
   }
 
+  @media (min-width:700px){ :root{ --gutter:2.5rem; } }
+
+  body{overflow-x:hidden;}
+
   .wrap{
-    max-width:38rem;
+    max-width:42rem;
     margin:0 auto;
-    padding:2.25rem 1.5rem 4rem;
+    padding:2.25rem var(--gutter) 4rem;
   }
+
+  /* full-bleed tinted sections: stretch to the wrap edges, keep text off the edge */
+  .pain-section,.urgency-section,.storytelling-section,.benefits-section{
+    margin-left:calc(-1 * var(--gutter)) !important;
+    margin-right:calc(-1 * var(--gutter)) !important;
+    padding-left:var(--gutter) !important;
+    padding-right:var(--gutter) !important;
+  }
+
+  .cta-row{text-align:center;}
 
   /* ---------- masthead ---------- */
 
@@ -112,21 +127,27 @@
 
   h1{
     font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(2.2rem,6vw,3.1rem);
-    line-height:1.12;
-    letter-spacing:-.015em;
+    font-weight:600;
+    font-size:clamp(2.4rem,7vw,3.5rem);
+    line-height:1.1;
+    letter-spacing:-.02em;
     margin:0 auto 1.9rem;
-    max-width:30rem;
+    max-width:32rem;
     text-align:center;
     text-wrap:balance;
+    color:var(--forest);
+  }
+
+  h1 .accent{
+    color:var(--gold);
   }
 
   .standfirst{
-    font-size:1.1rem;
+    font-size:1.15rem;
     color:var(--moss);
-    margin:0 0 1rem;
+    margin:0 0 2.5rem;
     max-width:33rem;
+    line-height:1.6;
   }
 
   .pitch .detail{
@@ -134,6 +155,371 @@
     color:var(--moss);
     margin:0 0 2.75rem;
     max-width:33rem;
+  }
+
+  .section-title{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.3rem;
+    line-height:1.25;
+    letter-spacing:-.01em;
+    margin:0 0 1.5rem;
+    color:var(--forest);
+  }
+
+  .pain-section{
+    padding:4rem 0;
+    background:rgba(74, 107, 87, 0.05);
+    margin-bottom:0;
+    margin-left:-1.5rem;
+    margin-right:-1.5rem;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+  }
+
+  .pain-section .section-title{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:clamp(1.8rem,5vw,2.4rem);
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin:0 auto 2.5rem;
+    color:var(--forest);
+    max-width:38rem;
+  }
+
+  .pain-section .section-title .accent{
+    color:var(--gold);
+  }
+
+  .pain-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2rem;
+    margin:0 auto 0;
+    max-width:38rem;
+  }
+
+  .pain-item{
+    display:flex;
+    gap:1.25rem;
+  }
+
+  .pain-item::before{
+    content:"✓";
+    flex-shrink:0;
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--gold);
+    width:1.8rem;
+    height:1.8rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .pain-item-text{
+    font-size:1rem;
+    color:var(--moss);
+    line-height:1.55;
+  }
+
+  .pain-item-text strong{
+    color:var(--forest);
+    font-weight:600;
+  }
+
+  .urgency-section{
+    padding:4rem 0;
+    background:rgba(27, 58, 43, 0.05);
+    margin-bottom:0;
+    margin-left:-1.5rem;
+    margin-right:-1.5rem;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+  }
+
+  .urgency-section{text-align:center;}
+
+  .urgency-highlight{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:clamp(1.35rem,3.6vw,1.75rem);
+    line-height:1.35;
+    color:var(--forest);
+    margin:0 auto 1.5rem;
+    max-width:34rem;
+    text-wrap:balance;
+  }
+
+  .urgency-highlight:last-child{margin-bottom:0;}
+
+  .urgency-highlight .accent{
+    color:var(--gold);
+  }
+
+  .benefits-section{
+    padding:4rem 0;
+    background:rgba(74, 107, 87, 0.05);
+    margin-bottom:0;
+    margin-left:-1.5rem;
+    margin-right:-1.5rem;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+  }
+
+  .bonus-text{
+    font-size:0.95rem;
+    color:var(--moss);
+    margin:0 0 2.75rem;
+    max-width:33rem;
+    font-style:italic;
+  }
+
+  .cta-link{
+    display:inline-block;
+    font-size:.92rem;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--forest);
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:999px;
+    padding:1.05rem 2rem;
+    text-decoration:none;
+    margin:1.5rem 0 2.75rem 0;
+    transition:background .15s ease;
+  }
+
+  .cta-link:hover{background:var(--gold);}
+
+  .cta-link:focus-visible{
+    outline:2px solid var(--forest);
+    outline-offset:2px;
+  }
+
+  /* ---------- reviews ---------- */
+
+  .reviews-section{
+    padding:4rem 0 1rem;
+    text-align:center;
+  }
+
+  .reviews-eyebrow{
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin:0 0 1rem;
+  }
+
+  .review{
+    margin:0 auto;
+    padding:2.5rem 0;
+    max-width:36rem;
+  }
+
+  .review-mark{
+    display:block;
+    font-family:var(--serif);
+    font-size:4.5rem;
+    line-height:1;
+    height:2.6rem;
+    color:var(--gold-soft);
+    opacity:.7;
+    margin-bottom:1rem;
+  }
+
+  .review-quote{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.25rem,3.4vw,1.6rem);
+    line-height:1.45;
+    color:var(--forest);
+    margin:0 0 1.5rem;
+    text-wrap:balance;
+  }
+
+  .review-source{
+    font-size:.8rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0;
+  }
+
+  /* ---------- section divider ---------- */
+
+  .section-divider{
+    height:3rem;
+    background:linear-gradient(to bottom, var(--paper) 0%, rgba(221, 211, 186, 0.15) 50%, var(--paper) 100%);
+    margin:2rem 0;
+  }
+
+  /* ---------- storytelling framework ---------- */
+
+  .storytelling-section{
+    padding:4rem 0;
+    background:rgba(27, 58, 43, 0.05);
+    margin-bottom:0;
+    margin-left:-1.5rem;
+    margin-right:-1.5rem;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+  }
+
+  .storytelling-title{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:clamp(1.6rem,4vw,2rem);
+    line-height:1.25;
+    letter-spacing:-.01em;
+    margin:0 0 2.5rem;
+    color:var(--forest);
+    max-width:28rem;
+  }
+
+  .storytelling-title .accent{
+    color:var(--gold);
+  }
+
+  .steps-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 2.75rem;
+    max-width:33rem;
+  }
+
+  .steps-list li{
+    font-size:1rem;
+    color:var(--moss);
+    margin:0 0 1.25rem;
+    padding-left:1.5rem;
+    position:relative;
+  }
+
+  .steps-list li::before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  /* ---------- email series ---------- */
+
+  .email-series-section{
+    margin-bottom:3rem;
+  }
+
+  .email-series-section h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.3rem;
+    line-height:1.25;
+    letter-spacing:-.01em;
+    margin:0 0 1.5rem;
+    color:var(--forest);
+  }
+
+  .series-description{
+    font-size:1rem;
+    color:var(--moss);
+    margin:0 0 2rem;
+    max-width:33rem;
+  }
+
+  .email-form{
+    max-width:26rem;
+  }
+
+  .email-form .fields{
+    display:grid;
+    gap:.9rem;
+    margin-bottom:1.1rem;
+  }
+
+  .email-form input[type=email],
+  .email-form input[type=text].real{
+    width:100%;
+    min-width:0;
+    font-family:inherit;
+    font-size:.92rem;
+    color:var(--forest);
+    background:#FFFDF7;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:.6rem .85rem;
+  }
+
+  .email-form .btn{
+    font-size:.8rem;
+    padding:.75rem 1.25rem;
+  }
+
+  .email-form label{
+    display:block;
+    text-align:left;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin-bottom:.5rem;
+  }
+
+  /* ---------- about section ---------- */
+
+  .about-section{
+    width:min(64rem, calc(100vw - 2 * var(--gutter)));
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    align-items:center;
+    padding:3rem 0;
+  }
+
+  @media (min-width:800px){
+    .about-section{
+      grid-template-columns:1.05fr 1fr;
+      gap:4rem;
+    }
+  }
+
+  .about-text h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.2rem,5vw,3rem);
+    line-height:1.1;
+    letter-spacing:-.02em;
+    margin:0 0 1.75rem;
+    color:var(--forest);
+  }
+
+  .about-text p{
+    font-size:1.1rem;
+    line-height:1.6;
+    color:var(--moss);
+    margin:0 0 1.25rem;
+  }
+
+  .about-text p:last-child{margin-bottom:0;}
+
+  .about-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:16px;
+    box-shadow:0 12px 32px rgba(27,58,43,.12);
   }
 
   /* ---------- form ---------- */
@@ -311,47 +697,224 @@
   @media (prefers-reduced-motion:reduce){
     *{transition:none !important;}
   }
+
+  /* ---------- section bands (replace dividers) ---------- */
+  :root{ --tint:#F0ECDF; }
+
+  .pain-section,.urgency-section,.storytelling-section,.benefits-section,
+  .reviews-section,.email-series-section,.about-section{
+    padding-top:4.5rem !important;
+    padding-bottom:4.5rem !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  /* full-bleed colour bands, even inside the narrow column */
+  .band-tint{
+    background:var(--tint) !important;
+    box-shadow:0 0 0 100vmax var(--tint);
+    clip-path:inset(0 -100vmax);
+  }
+  .band-plain{ background:transparent !important; }
+
+  .benefits-section{ padding-bottom:2rem !important; }
+  .gate{ margin:0 0 4.5rem; }
+
+  .reviews-section{ position:relative; }
+  .reviews-section::before{
+    content:"";
+    display:block;
+    width:40px;
+    height:2px;
+    background:var(--gold);
+    margin:0 auto 2rem;
+  }
+
+  footer{ margin-top:0 !important; }
+
+  /* ---------- all section headings in Raleway ---------- */
+  h1, .section-title, .storytelling-title, .gate h2, .delivered h2,
+  .email-series-section h2, .about-text h2{
+    font-family:var(--sans) !important;
+    font-weight:700 !important;
+    letter-spacing:-.015em !important;
+  }
+  h1{ font-weight:800 !important; letter-spacing:-.025em !important; }
+  .email-series-section h2{
+    font-size:clamp(1.6rem,4vw,2rem) !important;
+    line-height:1.25;
+  }
+
+  /* ---------- top banner ---------- */
+  html{ scroll-behavior:smooth; }
+  #about,#contact,#gate-section,#top{ scroll-margin-top:5.5rem; }
+
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,246,236,.94);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar-inner{
+    max-width:72rem;
+    margin:0 auto;
+    padding:.85rem var(--gutter);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+  }
+  .topbar .mark{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:1rem;
+    letter-spacing:-.01em;
+    color:var(--forest);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .topnav{
+    display:flex;
+    align-items:center;
+    gap:1.75rem;
+  }
+  .topnav a{
+    font-size:.9rem;
+    font-weight:600;
+    color:var(--forest);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .topnav a:not(.topbar-cta):hover{ color:var(--gold); }
+  .topbar-cta{
+    font-size:.78rem !important;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    background:var(--gold-soft);
+    border:1px solid var(--gold);
+    border-radius:999px;
+    padding:.65rem 1.2rem;
+    transition:background .15s ease;
+  }
+  .topbar-cta:hover{ background:var(--gold); }
+  .topbar-cta .short{ display:none; }
+
+  @media (max-width:760px){
+    .topbar-cta .long{ display:none; }
+    .topbar-cta .short{ display:inline; }
+    .topnav{ gap:1rem; }
+    .topnav a{ font-size:.82rem; }
+  }
+  @media (max-width:560px){
+    .topbar-inner{
+      flex-direction:column;
+      gap:.45rem;
+      padding:.6rem var(--gutter) .7rem;
+    }
+    .topbar .mark{ font-size:.95rem; }
+    .topnav{ gap:1.1rem; }
+    .topbar-cta{ padding:.45rem .9rem; font-size:.72rem !important; }
+    #about,#contact,#gate-section,#top{ scroll-margin-top:7rem; }
+  }
+
+  .wrap{ padding-top:0 !important; }
 </style>
 </head>
 
 <body>
-<div class="wrap">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="mark">Finance for Founders</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#about">About me</a>
+      <a href="#contact">Contact</a>
+      <a href="#gate-section" class="topbar-cta"><span class="long">Get free financial projections template</span><span class="short">Free template</span></a>
+    </nav>
+  </div>
+</header>
 
-  <header class="masthead">
-    <p class="mark">Finance for Founders</p>
-  </header>
+<div class="wrap" id="top">
 
   <main class="pitch">
 
     <p class="eyebrow">For founders of D2C startups</p>
 
-    <h1>Know your numbers for your pre-seed $500k raise.</h1>
+    <h1>Know your numbers for your <span class="accent">pre-seed $500k raise</span>.</h1>
 
-    <ul class="points">
-      <li>
-        Know how to back up all your plans for growth, with defensible
-        numbers.
-      </li>
-      <li>
-        Create models and projections that, even without your deck,
-        describe how your business works.
-      </li>
-      <li>
-        Learn how to calculate the typical metrics investors look for in
-        your model, like CAC, LTV, conversion rate and retention rate.
-      </li>
-    </ul>
-
-    <p class="detail">
-      In other words, learn how to prepare every number an investor can
-      ask for, so you take investor calls with confidence.
+    <p class="standfirst">
+      If you've come to this site, you're likely struggling to get your numbers right. I'm here to help you prepare every number an investor can ask for.
     </p>
 
-    <div class="gate">
+    <div class="cta-row"><a href="#gate-section" class="cta-link">Get help to know your numbers</a></div>
+
+    <section class="pain-section band-tint">
+      <h2 class="section-title">I understand the pain and frustration of trying to <span class="accent">get your numbers right</span>.</h2>
+      <div class="pain-grid">
+        <div class="pain-item">
+          <div class="pain-item-text">Most things are <strong>in your head</strong>, and it is hard to tell your business story with numbers</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-item-text">You don't want to start because you're <strong>unsure if the business will make enough profit</strong></div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-item-text">You don't know <strong>how much you need</strong> and struggle to forecast growth</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-item-text">You need to understand <strong>what margins you should target</strong> for each product</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-item-text">You want to tell investors <strong>what you need to get to where you want to go</strong></div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-item-text">You want <strong>all the numbers to tie together</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="urgency-section band-plain">
+      <p class="urgency-highlight">
+        At a pre-seed stage, where you are investing your money into your business, knowing your numbers is <span class="accent">critical</span>.
+      </p>
+      <p class="urgency-highlight">
+        If investors are confused by your numbers, you will hear: <span class="accent">&ldquo;You are too early&rdquo;</span>
+      </p>
+    </section>
+
+    <section class="storytelling-section band-tint">
+      <h2 class="storytelling-title">Master your financial storytelling, <span class="accent">raise money</span></h2>
+      <ul class="steps-list">
+        <li>Understand your numbers</li>
+        <li>Decide your story</li>
+        <li>Make your numbers tell it</li>
+      </ul>
+      <div class="cta-row"><a href="#gate-section" class="cta-link">Get started</a></div>
+    </section>
+
+    <section class="benefits-section band-plain">
+      <h2 class="section-title" style="font-family:var(--sans); font-weight:700; font-size:clamp(1.8rem,5vw,2.2rem);">Here's the first step: <span class="accent">download my free template</span></h2>
+      <ul class="points">
+        <li>Know how to back up all your plans for growth, with defensible numbers</li>
+        <li>Create models and projections that, even without your deck, describe how your business works</li>
+        <li>Learn how to calculate the typical metrics investors look for in your model, like CAC, LTV, conversion rate, churn and retention rate</li>
+      </ul>
+      <p class="detail">
+        In other words, learn how to prepare every number an investor can ask for, so you take investor calls with confidence.
+      </p>
+      <p class="bonus-text">
+        Plus: I'll be sharing startup numbers-related articles with you for the next 5 days for you to make the best use of the template.
+      </p>
+    </section>
+
+    
+
+    <div class="gate" id="gate-section">
      <div class="gate-inner">
 
       <p class="gate-eyebrow">Almost there</p>
-      <h2>Get the financial projections template</h2>
+      <h2>Download the template</h2>
       <p class="lede">
         Drop your details below and I'll share it straight over.
       </p>
@@ -383,7 +946,7 @@
         </div>
 
         <button type="submit" class="btn" id="submit-btn">
-          Get free projections template
+          Download the template
         </button>
 
         <div class="honeypot" aria-hidden="true">
@@ -409,9 +972,93 @@
 
      </div>
     </div>
+
+    <section class="reviews-section band-tint">
+      <p class="reviews-eyebrow">Trusted by pre-seed startups (like yours)</p>
+
+      <figure class="review">
+        <span class="review-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="review-quote">It was very useful. Just to see what needs to happen, and also how much capital we need to actually make it happen.</blockquote>
+        <figcaption class="review-source">No More Nobody</figcaption>
+      </figure>
+
+      <figure class="review">
+        <span class="review-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="review-quote">It was awesome, we had to submit our deck for a pitch contest, the only part missing were the finance one, Hervé managed to deliver clear financial projections timely and something that truly reflected our business model.</blockquote>
+        <figcaption class="review-source">Lodial</figcaption>
+      </figure>
+
+      <figure class="review">
+        <span class="review-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="review-quote">I really like the idea of learning how to do this myself so that I understand the numbers properly and can keep everything updated as the business develops.</blockquote>
+        <figcaption class="review-source">Caroline &middot; Donna Forte</figcaption>
+      </figure>
+    </section>
+
+    <section class="email-series-section band-plain">
+      <h2>Free startup-finance insights</h2>
+      <p class="series-description">
+        Get 5 emails to deepen your financial storytelling skills. Join hundreds of pre-seed founders who are mastering their numbers.
+      </p>
+      <form id="email-series-form" class="email-form" novalidate>
+        <div class="fields">
+          <div>
+            <label for="series-name">Your name</label>
+            <input
+              type="text"
+              class="real"
+              id="series-name"
+              name="name"
+              placeholder="Jane"
+              autocomplete="given-name"
+              required>
+          </div>
+
+          <div>
+            <label for="series-email">Email address</label>
+            <input
+              type="email"
+              id="series-email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="series-submit-btn">
+          Get the insights
+        </button>
+
+        <div class="honeypot" aria-hidden="true">
+          <label for="series-company">Company</label>
+          <input type="text" id="series-company" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="error" id="series-error" role="alert" hidden></p>
+
+      </form>
+
+      <div class="delivered" id="series-delivered" hidden>
+        <h2>Check your inbox.</h2>
+        <p>
+          I've sent the first email — check your spam folder if it hasn't landed in a minute.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-section band-tint" id="about">
+      <div class="about-text">
+        <h2>Hi, I'm Hervé.</h2>
+        <p>I was an investment banker at J.P. Morgan and BNP Paribas. There I raised money for big companies. Then I co-founded a startup, and raised money for it as well.</p>
+        <p>In both cases I used one principle: financial storytelling. Today I teach this principle to help you raise money for your business.</p>
+      </div>
+      <div class="about-photo"><img src="/herve.jpg" alt="Hervé" width="1280" height="853" loading="lazy"></div>
+    </section>
+
   </main>
 
-  <footer>
+  <footer id="contact">
     <p class="contact">
       Got a question about the finance part of your startup? Email
       <a href="mailto:herve@herveky.com">herve@herveky.com</a>
@@ -518,7 +1165,7 @@ var CONFIG = {
 
   function fail() {
     button.disabled = false;
-    button.textContent = "Get free projections template";
+    button.textContent = "Download the template";
     showError(
       "That didn't send. Try again, or email herve@herveky.com and " +
       "I'll pass the link straight over."
@@ -530,6 +1177,99 @@ var CONFIG = {
      promise means the request left the browser; only a genuine network
      failure rejects. Server-side problems are invisible here, which is
      why the sheet is the thing to watch. */
+  function send(params, onSuccess, onFailure) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 20000);
+
+    fetch(CONFIG.endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(params),
+      signal: controller.signal
+    })
+    .then(function () {
+      clearTimeout(timer);
+      onSuccess();
+    })
+    .catch(function () {
+      clearTimeout(timer);
+      onFailure();
+    });
+  }
+})();
+
+/* Email series form handling */
+(function () {
+  var form      = document.getElementById("email-series-form");
+  var nameIn    = document.getElementById("series-name");
+  var emailIn   = document.getElementById("series-email");
+  var honeypot  = document.getElementById("series-company");
+  var button    = document.getElementById("series-submit-btn");
+  var errorBox  = document.getElementById("series-error");
+  var delivered = document.getElementById("series-delivered");
+
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+  }
+
+  function looksLikeEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+  }
+
+  function reveal(email) {
+    form.hidden = true;
+    delivered.hidden = false;
+    delivered.querySelector("h2").setAttribute("tabindex", "-1");
+    delivered.querySelector("h2").focus();
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    errorBox.hidden = true;
+
+    if (honeypot.value) { return; }
+
+    var name  = nameIn.value.trim();
+    var email = emailIn.value.trim();
+
+    if (!name) {
+      showError("Your name, so I know who I'm sending it to.");
+      nameIn.focus();
+      return;
+    }
+
+    if (!looksLikeEmail(email)) {
+      showError("That doesn't look like a working email address.");
+      emailIn.focus();
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Sending…";
+
+    send(
+      {
+        name: name,
+        email: email,
+        source: "d2cfinancialprojections-series",
+        botcheck: honeypot.value
+      },
+      function () { reveal(email); },
+      fail
+    );
+  });
+
+  function fail() {
+    button.disabled = false;
+    button.textContent = "Get the insights";
+    showError(
+      "That didn't send. Try again, or email herve@herveky.com and " +
+      "I'll pass the emails straight over."
+    );
+  }
+
   function send(params, onSuccess, onFailure) {
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, 20000);
