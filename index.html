@@ -27,7 +27,7 @@
   :root{
     --paper:#F6F1E8;
     --forest:#253931;
-    --moss:#4F6158;
+    --moss:#2F3F37;
     --gold:#B68C4B;
     --gold-soft:#D9B77E;
     --rule:#DED5C4;
@@ -89,7 +89,7 @@
 
   /* ---------- pitch ---------- */
 
-  .pitch{padding-top:4rem;}
+  .pitch{padding-top:4rem; background: linear-gradient(to bottom, #FBF8F2 0%, rgba(217, 183, 126, 0.08) 100%);}
 
   @media (min-width:700px){
     .pitch{padding-top:5.5rem;}
@@ -967,26 +967,123 @@
   .gate-band{ padding-bottom:4.5rem; }
   .gate-band .gate{ margin:0 !important; }
 
-  /* ---------- dark green hero only ---------- */
-  .pitch{ padding-top:0 !important; }
+  /* ---------- light hero ---------- */
+  .pitch{ padding-top:0 !important; background:none; }
   .hero{
-    --forest:#F6F1E8;
-    --moss:#CDD0C6;
-    background:#253931;
-    box-shadow:0 0 0 100vmax #253931;
-    clip-path:inset(0 -100vmax);
+    position:relative;
+    background:linear-gradient(to bottom, #FBF8F2 0%, #F4ECE0 100%);
     padding-top:4.5rem;
     padding-bottom:4.5rem !important;
   }
-  .hero h1{ color:#F6F1E8; }
-  .hero .standfirst{ color:#CDD0C6; }
-  .hero .cta-link{ color:#253931 !important; }
-  .hero-photo img{ box-shadow:0 18px 40px rgba(0,0,0,.35) !important; }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    left:50%;
+    width:100vw;
+    transform:translateX(-50%);
+    background:linear-gradient(to bottom, #FBF8F2 0%, #F4ECE0 100%);
+    z-index:-1;
+  }
+  .hero-photo img{ box-shadow:0 18px 40px rgba(37,57,49,.18) !important; }
 
   .band-white{
     background:#FFFFFF !important;
     box-shadow:0 0 0 100vmax #FFFFFF;
     clip-path:inset(0 -100vmax);
+  }
+
+  /* ---------- proof: testimonials ---------- */
+  .proof-section{
+    background:var(--tint) !important;
+    box-shadow:0 0 0 100vmax var(--tint);
+    clip-path:inset(0 -100vmax);
+    margin-left:calc(-1 * var(--gutter)) !important;
+    margin-right:calc(-1 * var(--gutter)) !important;
+    padding:4.5rem var(--gutter) !important;
+  }
+  .proof-inner{ display:grid; gap:1.5rem; }
+  .proof-head{ text-align:center; margin-bottom:1rem; }
+  .proof-head .section-title{
+    font-family:var(--sans); font-weight:700; margin:0;
+    font-size:clamp(1.6rem,4.5vw,2.1rem);
+  }
+  .proof-featured{
+    position:relative;
+    background:#FFFFFF;
+    border:1px solid var(--rule);
+    border-radius:1.25rem;
+    padding:2rem 1.5rem;
+    display:grid;
+    gap:1.5rem;
+    justify-items:center;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(37,57,49,.08);
+  }
+  .proof-photo{
+    width:9rem; height:9rem;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #FFFFFF;
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+  .proof-mark{
+    display:block;
+    font-family:var(--serif);
+    font-size:5rem; line-height:1; height:2.6rem;
+    color:var(--gold);
+    margin-bottom:.5rem;
+  }
+  .proof-quote{
+    font-family:var(--serif);
+    font-style:italic; font-weight:400;
+    font-size:clamp(1.2rem,3.2vw,1.55rem);
+    line-height:1.5;
+    color:var(--forest);
+    margin:0 0 1.25rem;
+    text-wrap:pretty;
+  }
+  .proof-source{
+    font-size:.8rem; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold); margin:0;
+  }
+  .proof-row{ display:grid; gap:1.5rem; }
+  .proof-card{
+    background:#FFFFFF;
+    border:1px solid var(--rule);
+    border-top:3px solid var(--gold);
+    border-radius:1rem;
+    padding:1.75rem 1.5rem;
+    display:grid; gap:1rem;
+    grid-template-columns:auto 1fr;
+    align-content:start;
+    align-items:start;
+  }
+  .proof-card .proof-photo{ width:4.5rem; height:4.5rem; outline-width:2px; outline-offset:2px; border-width:3px; }
+  .proof-card .proof-quote{ font-size:1.05rem; line-height:1.55; margin:0 0 1rem; }
+  .proof-card .proof-body{ grid-column:1 / -1; }
+  .proof-card .proof-source{ align-self:center; }
+
+
+  @media (min-width:900px){
+    .proof-inner{
+      width:min(64rem, calc(100vw - 2 * var(--gutter)));
+      position:relative; left:50%; transform:translateX(-50%);
+    }
+    .proof-featured{
+      grid-template-columns:15rem 1fr;
+      gap:3rem;
+      padding:3rem 3.5rem;
+      text-align:left;
+      justify-items:start;
+      align-items:center;
+    }
+    .proof-featured .proof-photo{ width:15rem; height:15rem; outline-offset:5px; }
+    .proof-featured .proof-quote{ font-size:1.7rem; }
+    .proof-row{ grid-template-columns:1fr 1fr; }
+    .proof-card{ padding:2rem; }
   }
 </style>
 <script>
@@ -1021,7 +1118,7 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
         <h1>Know your numbers for your <span class="accent"><span style="white-space:nowrap">pre-seed</span> £500k raise</span>.</h1>
 
         <p class="standfirst">
-          If you've come to this site, you're likely struggling to get your numbers right to raise. I'm here to help you.
+          If you've come to this site, you're likely struggling to get your numbers right to raise. I'm here to teach you how to do it.
         </p>
 
         <div class="cta-row"><a href="#first-step" class="cta-link">Get help to know your numbers</a></div>
@@ -1057,6 +1154,41 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
     </section>
 
 
+
+    <section class="proof-section">
+      <div class="proof-inner">
+        <div class="proof-head">
+          <h2 class="section-title">What founders say <span class="accent">after working with me</span></h2>
+        </div>
+
+        <figure class="proof-featured" style="margin-left:0;margin-right:0;">
+          <img class="proof-photo" src="testimonials/caroline.jpg" alt="Caroline, Founder of Donna Forte" width="560" height="560" loading="lazy">
+          <blockquote style="margin:0;">
+            <span class="proof-mark" aria-hidden="true">&ldquo;</span>
+            <p class="proof-quote">I really like the idea of learning how to do this myself so that I understand the numbers properly and can keep everything updated as the business develops.</p>
+            <p class="proof-source">Caroline, Founder of Donna Forte</p>
+          </blockquote>
+        </figure>
+
+        <div class="proof-row">
+          <figure class="proof-card" style="margin:0;">
+            <img class="proof-photo" src="testimonials/no-more-nobody.jpg" alt="Silva, Founder of No More Nobody" width="560" height="560" loading="lazy">
+            <p class="proof-source">Silva, Founder of No More Nobody</p>
+            <blockquote class="proof-body" style="margin:0;">
+              <p class="proof-quote">&ldquo;It was very useful. Just to see what needs to happen, and also how much capital we need to actually make it happen.&rdquo;</p>
+            </blockquote>
+          </figure>
+
+          <figure class="proof-card" style="margin:0;">
+            <img class="proof-photo" src="testimonials/lodial.jpg" alt="Negue, CEO and Co-founder of Lodial" width="560" height="560" loading="lazy">
+            <p class="proof-source">Negue, CEO and Co-founder of Lodial</p>
+            <blockquote class="proof-body" style="margin:0;">
+              <p class="proof-quote">&ldquo;It was awesome, we had to submit our deck for a pitch contest, the only part missing were the finance one, Hervé managed to deliver clear financial projections timely and something that truly reflected our business model.&rdquo;</p>
+            </blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
 
     <section class="benefits-section band-plain" id="first-step">
       <h2 class="section-title" style="font-family:var(--sans); font-weight:700; font-size:clamp(1.8rem,5vw,2.2rem);">Here's the first step: <span class="accent">download my free financial projections template</span></h2>
