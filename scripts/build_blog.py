@@ -10,7 +10,8 @@ Each post is posts/YYYY-MM-DD-slug.md, starting with a header:
     ---
 
 followed by the article. Supported: blank line = new paragraph, "## " and "### "
-headings, "> " quote, **bold**, *italic*, [text](url).
+headings, "> " quote, **bold**, *italic*, [text](url), and images on their own
+line: ![description](/images/blog/photo.jpg "optional caption").
 Output: blog/index.html and blog/<slug>/index.html. No dependencies.
 """
 import datetime, html, pathlib, re, shutil, sys
@@ -33,7 +34,12 @@ def render(body):
         block = block.strip()
         if not block:
             continue
-        if block.startswith("### "):
+        img = re.fullmatch(r'!\[(.*?)\]\(((?:https?://|/)\S+?)(?:\s+"(.*?)")?\)', block)
+        if img:
+            alt, src, caption = img.groups()
+            cap = f"<figcaption>{inline(caption)}</figcaption>" if caption else ""
+            out.append(f'<figure><img src="{html.escape(src)}" alt="{html.escape(alt)}" loading="lazy">{cap}</figure>')
+        elif block.startswith("### "):
             out.append(f"<h3>{inline(block[4:])}</h3>")
         elif block.startswith("## "):
             out.append(f"<h2>{inline(block[3:])}</h2>")
