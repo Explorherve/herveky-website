@@ -20,7 +20,7 @@ To work on financial forecasts, and finance-driven decisions you need a finance 
 
 Your accountant will prepare the data set and the finance advisor will transform it into a story. It’s like a blacksmith who buys iron and steel before moulding them into a sword that people can buy for their use. So, a finance advisor is like a blacksmith: they take your numbers and mould them so that you can sell your business to investors.
 
-## The example of what a financial advisor can bring to you
+## An real example of what a financial advisor can bring to you
 
 Let me give you an example. When I worked with my client Caroline, we turned a bunch of numbers into a story. That supported the explanations between what she wants to achieve and today’s reality.
 
