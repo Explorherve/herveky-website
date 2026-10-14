@@ -26,11 +26,11 @@ Let me give you an example. When I worked with my client Caroline, we turned a b
 
 For instance, her deck was showing that her business was about to penetrate the UK market by 1% in the first year, and so on a few years later.
 
-But going deeper into her numbers, it didn’t show anywhere how she was planning to do that. Together, we broke down the way her business works and how she’s gonna attract these people.
+But going deeper into her numbers, it didn’t show anywhere how she was planning to do that. 
 
-After doing that, she could articulate the story of the market penetration.
+Together, we broke down the way her business works and how she’s gonna attract these people.
 
-So now she can say that she’s targeting £100k in revenue in the first year and back how she's going to do that:
+So now when she says that she’s targeting £100k in revenue in the first year, she is able to explain how she's going to do that:
 
 She’ll need to acquire 1,000 visitors per month on her website, with [x]% of these visitors making an average purchase of [4] bras. Each bra sells at £[50], which will then bring her £100k.
 
@@ -38,7 +38,7 @@ She can also articulate how much it will cost her to do that:
 
 To acquire these customers, she estimates that it’ll cost £[10] each, driven by a mix of social media ads to start with and relayed by word of mouth and hospital recommendations.
 
-## Why does the accountant cannot do that?
+## Why does your accountant cannot do that?
 
 If you ask your son’s football team coach to coach a rugby team, he won’t be able to do so, even though there are similarities. 
 
