@@ -22,7 +22,7 @@ Indeed, in both sports, there is a team, a ball and they’re played on grass. E
 
 Both an accountant and a finance advisor deal with numbers. But they don’t play the same sport.
 
-### A finance advisor transforms a set of figures into a story.
+## A finance advisor transforms a set of figures into a story.
 
 Your accountant will prepare the data set and the finance advisor will transform it into a story. It’s like a blacksmith who buys iron and steel before moulding them into a sword that people can buy for their use. A finance advisor is like a blacksmith: they take your numbers and mould them so that you can sell your business to investors.
 
@@ -40,7 +40,7 @@ To do this, she’ll need to acquire 1,000 visitors per month on her website, wi
 
 To acquire these customers, she estimates that it’ll cost £[10] each, driven by a mix of social media ads to start with and relayed by word of mouth and hospital recommendations.
 
-This is not an accountant's job.
+## This is not an accountant's job.
 
 So while the accountant is working on historical numbers, they focus less on storytelling and understanding how the business works. The accountant prepares you to comply with HMRC. A finance advisor looks at the numbers through the same lens as an investor would.
 
