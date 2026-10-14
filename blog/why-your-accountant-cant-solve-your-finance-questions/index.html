@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why is your accountant not the person who can solve all your finance questions? · Hervé Ky</title>
+  <meta name="description" content="Your accountant knows the rules and HMRC. A finance advisor turns your numbers into a story investors can follow. Here is the difference, with a real founder example.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8922A;
+      --gold-light: #E8B84B;
+      --gold-pale: #F5E6C8;
+      --ink: #1A1714;
+      --ink-soft: #3D3730;
+      --stone: #8C8480;
+      --cream: #FAF8F4;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    .posts { flex: 1; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,146,42,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600; letter-spacing: 0.02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-soft);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a.current { color: var(--gold); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 11rem 4rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute;
+      top: -25%; right: -8%;
+      width: 50vw; height: 50vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,146,42,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block; font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--gold);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 1.5rem; max-width: 16ch;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 300; font-style: italic;
+      color: var(--stone); max-width: 620px; line-height: 1.5; margin-bottom: 2.5rem;
+    }
+
+    
+    /* POST LIST */
+    .posts { padding: 9rem 4rem 6rem; }
+    .posts .inner { max-width: 820px; }
+    .post { display: block; padding: 2rem 0; border-top: 1px solid rgba(200,146,42,0.18); text-decoration: none; color: inherit; }
+    .post:last-child { border-bottom: 1px solid rgba(200,146,42,0.18); }
+    .post-meta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .post-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 400; line-height: 1.25; color: var(--ink); margin-bottom: 0.5rem; transition: color 0.2s; }
+    a.post:hover .post-title { color: var(--gold); }
+    .post-summary { font-size: 0.95rem; font-weight: 300; color: var(--stone); line-height: 1.7; }
+/* ARTICLE */
+    .article { flex: 1; padding: 9rem 4rem 5rem; }
+    .article-inner { max-width: 720px; }
+    .back { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-decoration: none; margin-bottom: 2rem; }
+    .back:hover { color: var(--gold-light); }
+    .article .article-meta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .article h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4.4vw, 3.1rem); font-weight: 400; line-height: 1.15; color: var(--ink); margin-bottom: 2.5rem; }
+    .article h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; line-height: 1.25; color: var(--ink); margin: 2.5rem 0 1rem; }
+    .article h3 { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin: 2rem 0 0.8rem; }
+    .article p { font-size: 1.05rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.3rem; }
+    .article blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; line-height: 1.5; color: var(--ink); border-left: 2px solid var(--gold); padding-left: 1.2rem; margin: 1.5rem 0; }
+
+    .article figure { margin: 2rem 0; }
+    .article img { display: block; max-width: 100%; height: auto; }
+    .article figcaption { font-size: 0.85rem; font-weight: 300; font-style: italic; color: var(--stone); margin-top: 0.6rem; }
+
+    /* FOOTER (matches index page) */
+    footer {
+      width: 100%; padding: 1.5rem 4rem 4rem;
+      font-size: .85rem; color: #2F3F37;
+    }
+    footer .footer-inner { max-width: 820px; border-top: 1px solid #DED5C4; padding-top: 1.5rem; }
+    footer p { margin: 0; }
+    footer .contact { margin: 0 0 .8rem; }
+    footer .contact a { color: #253931; text-decoration: none; border-bottom: 1px solid #B68C4B; transition: border-color .15s ease; }
+    footer .contact a:hover { border-color: #253931; }
+
+    /* ANIMATIONS */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-hero { padding: 9rem 2rem 3rem; }
+      .posts { padding: 7rem 2rem 4rem; }
+      .article { padding: 7rem 2rem 3rem; }
+      footer { padding: 1.5rem 2rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Hervé<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#projects">Projects</a></li>
+    <li><a href="/advisory.html">Advisory</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/blog/" class="current">Blog</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE -->
+<article class="article">
+  <div class="article-inner">
+    <a class="back" href="/blog/">&larr; All posts</a>
+    <p class="article-meta">14 October 2026</p>
+    <h1>Why is your accountant not the person who can solve all your finance questions?</h1>
+
+    <p>Before working with me, Caroline, a founder of an underwear brand for post-breast surgery recovery, asked her accountant to help with her financial projections, pricing and margins. However, all he could do was establish her costs. She already had the data herself, so it didn’t help.</p>
+    <p>So why can't Caroline’s accountant help her, despite working with numbers?</p>
+    <h2>What an accountant does best</h2>
+    <p>I like to see your accountant as a priest. Your accountant knows the accounting rules and the HMRC rules. He is like a priest who knows the Bible and relies on it for any questions that you have.</p>
+    <p>He prepares your payslips, the accounts of your business and answers all the questions you have about HMRC and all of that. So he is best placed to give you advice on that. Just like a priest will give you advice based on the Bible.</p>
+    <h2>What he cannot solve</h2>
+    <p>If you ask your son’s football team coach to coach a rugby team, he won’t be able to do so, even though there are similarities.</p>
+    <p>Indeed, in both sports, there is a team, a ball and they’re played on grass. Except that the rules are different. In one, as soon as you fall, the referee whistles in your favour, while in the other, falling after being charged by your opponent is just part of the game and the referee doesn’t even look at you, even though you’re chewing the grass like a cow does.</p>
+    <p>Both an accountant and a finance advisor deal with numbers. But they don’t play the same sport.</p>
+    <h3>A finance advisor transforms a set of figures into a story.</h3>
+    <p>Your accountant will prepare the data set and the finance advisor will transform it into a story. It’s like a blacksmith who buys iron and steel before moulding them into a sword that people can buy for their use. A finance advisor is like a blacksmith: they take your numbers and mould them so that you can sell your business to investors.</p>
+    <p>Let me give you an example. As we worked together with Caroline, we turned a bunch of numbers into a story and built a bridge between what she wants to achieve and today’s reality.</p>
+    <p>For instance, her deck was showing that her business was about to penetrate the UK market by 1% in the first year, and so on a few years later.</p>
+    <p>But going deeper into her numbers, it didn’t show anywhere how she was planning to do that. Together, we broke down the way her business works and how she’s gonna attract these people.</p>
+    <p>After doing that, she could articulate the story of the market penetration.</p>
+    <p>So now she can say that she’s targeting £100k in revenue in the first year.</p>
+    <p>To do this, she’ll need to acquire 1,000 visitors per month on her website, with [x]% making an average purchase of [4] bras that she sells at £[50], which will bring her £100k.</p>
+    <p>To acquire these customers, she estimates that it’ll cost £[10] each, driven by a mix of social media ads to start with and relayed by word of mouth and hospital recommendations.</p>
+    <p>This is not an accountant's job.</p>
+    <p>So while the accountant is working on historical numbers, they focus less on storytelling and understanding how the business works. The accountant prepares you to comply with HMRC. A finance advisor looks at the numbers through the same lens as an investor would.</p>
+    <h2>Conclusion</h2>
+    <p>Asking the right questions to the wrong people leads to the same conclusion as asking the wrong questions to the right people. Nothing.</p>
+    <p>As Nobel Prize-winning French biochemist Jacques Monod said:</p>
+    <blockquote>“A totally blind process can by definition lead to anything; it can even lead to vision itself.”</blockquote>
+    <p>So for all your questions relating to payslips, accounts, expenses and HMRC, ask your accountant.</p>
+    <p>For your questions on pricing, profits, financial forecasts, valuation and financial storytelling, ask your finance advisor.</p>
+  </div>
+</article>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <p class="contact">
+      Got a question about the finance part of your startup? Email
+      <a href="mailto:herve@herveky.com">herve@herveky.com</a>
+      or find me on
+      <a href="https://www.linkedin.com/in/herve-ky" target="_blank" rel="noopener">LinkedIn</a>.
+    </p>
+    <p>&copy; 2026 Hervé Ky</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
