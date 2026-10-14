@@ -12,12 +12,15 @@ Each post is posts/YYYY-MM-DD-slug.md, starting with a header:
 followed by the article. Supported: blank line = new paragraph, "## " and "### "
 headings, "> " quote, **bold**, *italic*, [text](url), and images on their own
 line: ![description](/images/blog/photo.jpg "optional caption").
-Output: blog/index.html and blog/<slug>/index.html. No dependencies.
+Output: blog/index.html, blog/<slug>/index.html, sitemap.xml and feed.xml. No dependencies.
 """
-import datetime, html, pathlib, re, shutil, sys
+import datetime, email.utils, html, json, pathlib, re, shutil, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSTS, BLOG, TPL = ROOT / "posts", ROOT / "blog", ROOT / "scripts"
+SITE = "https://herveky.com"
+# Public pages besides the blog posts. Private pages are deliberately not listed.
+STATIC_PAGES = ["/"]
 
 
 def inline(text):
@@ -77,6 +80,46 @@ def fill(template, **values):
     return template
 
 
+def write_sitemap(posts):
+    urls = [(SITE + path, None) for path in STATIC_PAGES]
+    urls.append((SITE + "/blog/", posts[0]["date"].isoformat() if posts else None))
+    urls += [(f"{SITE}/blog/{p['slug']}/", p["date"].isoformat()) for p in posts]
+    rows = "\n".join(
+        f"  <url><loc>{u}</loc>" + (f"<lastmod>{d}</lastmod>" if d else "") + "</url>" for u, d in urls
+    )
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows + "\n</urlset>\n",
+        encoding="utf-8",
+    )
+
+
+def write_feed(posts):
+    items = "\n".join(
+        f"""    <item>
+      <title>{html.escape(p['title'], quote=False)}</title>
+      <link>{SITE}/blog/{p['slug']}/</link>
+      <guid>{SITE}/blog/{p['slug']}/</guid>
+      <pubDate>{email.utils.format_datetime(datetime.datetime.combine(p['date'], datetime.time(9), datetime.timezone.utc))}</pubDate>
+      <description>{html.escape(p['summary'], quote=False)}</description>
+    </item>"""
+        for p in posts
+    )
+    (ROOT / "feed.xml").write_text(
+        f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Hervé Ky blog</title>
+    <link>{SITE}/blog/</link>
+    <description>Short, practical writing on fundraising, financial models and running a company.</description>
+{items}
+  </channel>
+</rss>
+""",
+        encoding="utf-8",
+    )
+
+
 def main():
     posts = sorted((parse(p) for p in POSTS.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-*.md")), key=lambda p: p["date"], reverse=True)
     post_tpl = (TPL / "post.template.html").read_text(encoding="utf-8")
@@ -92,9 +135,13 @@ def main():
         (BLOG / p["slug"]).mkdir(parents=True, exist_ok=True)
         (BLOG / p["slug"] / "index.html").write_text(fill(
             post_tpl,
-            TITLE=html.escape(p["title"], quote=False),
+            TITLE=html.escape(p["title"]),
             SUMMARY=html.escape(p["summary"]),
             DATE_LONG=f"{p['date'].day} {p['date']:%B %Y}",
+            DATE_ISO=p["date"].isoformat(),
+            URL=f"{SITE}/blog/{p['slug']}/",
+            JSON_TITLE=json.dumps(p["title"], ensure_ascii=False),
+            JSON_SUMMARY=json.dumps(p["summary"], ensure_ascii=False),
             CONTENT=render(p["body"]),
         ), encoding="utf-8")
         items.append(f'''    <a class="post fade-in" href="/blog/{p['slug']}/">
@@ -103,6 +150,8 @@ def main():
       <p class="post-summary">{html.escape(p['summary'], quote=False)}</p>
     </a>''')
     (BLOG / "index.html").write_text(fill(index_tpl, POSTS="\n".join(items)), encoding="utf-8")
+    write_sitemap(posts)
+    write_feed(posts)
     print(f"Built {len(posts)} post(s)")
 
 
