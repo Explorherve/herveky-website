@@ -20,7 +20,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSTS, BLOG, TPL = ROOT / "posts", ROOT / "blog", ROOT / "scripts"
 SITE = "https://herveky.com"
 # Public pages besides the blog posts. Private pages are deliberately not listed.
-STATIC_PAGES = ["/", "/d2cfinancialprojections"]
+STATIC_PAGES = ["/"]
 
 
 def inline(text):
