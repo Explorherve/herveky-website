@@ -22,7 +22,7 @@ Your accountant will prepare the data set and the finance advisor will transform
 
 ## An real example of what a financial advisor can bring to you
 
-Let me give you an example. When I worked with my client Caroline, we turned a bunch of numbers into a story. That supported the explanations between what she wants to achieve and today’s reality.
+Let me give you an example. When I worked with my client Caroline, we turned a bunch of numbers into a story. That in turn helped explaining the gap between what she wants to achieve and today’s reality.
 
 For instance, her deck was showing that her business was about to penetrate the UK market by 1% in the first year, and so on a few years later.
 
