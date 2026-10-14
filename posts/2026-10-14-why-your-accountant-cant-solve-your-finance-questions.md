@@ -1,5 +1,5 @@
 ---
-title: Why is your accountant not the person who can solve all your finance questions?
+title: Why your accountant won't be able to do your startup's financial projections
 date: 2026-10-14
 summary: Your accountant knows the rules and HMRC. A finance advisor turns your numbers into a story investors can follow. Here is the difference, with a real founder example.
 ---
