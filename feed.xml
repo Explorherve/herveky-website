@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Hervé Ky blog</title>
+    <link>https://herveky.com/blog/</link>
+    <description>Short, practical writing on fundraising, financial models and running a company.</description>
+    <item>
+      <title>Why is your accountant not the person who can solve all your finance questions?</title>
+      <link>https://herveky.com/blog/why-your-accountant-cant-solve-your-finance-questions/</link>
+      <guid>https://herveky.com/blog/why-your-accountant-cant-solve-your-finance-questions/</guid>
+      <pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Your accountant knows the rules and HMRC. A finance advisor turns your numbers into a story investors can follow. Here is the difference, with a real founder example.</description>
+    </item>
+  </channel>
+</rss>
