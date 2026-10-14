@@ -32,7 +32,9 @@
       font-size: 16px;
       line-height: 1.7;
       overflow-x: hidden;
+      min-height: 100vh; display: flex; flex-direction: column;
     }
+    .posts { flex: 1; }
 
     /* NAV */
     nav {
@@ -92,7 +94,7 @@
 
     
     /* POST LIST */
-    .posts { padding: 1rem 4rem 6rem; }
+    .posts { padding: 9rem 4rem 6rem; }
     .posts .inner { max-width: 820px; }
     .post { display: block; padding: 2rem 0; border-top: 1px solid rgba(200,146,42,0.18); text-decoration: none; color: inherit; }
     .post:last-child { border-bottom: 1px solid rgba(200,146,42,0.18); }
@@ -120,7 +122,7 @@
       nav { padding: 1.2rem 2rem; }
       .nav-links { gap: 1.5rem; }
       .page-hero { padding: 9rem 2rem 3rem; }
-      .posts { padding: 1rem 2rem 4rem; }
+      .posts { padding: 7rem 2rem 4rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 2rem; }
     }
   </style>
@@ -138,15 +140,6 @@
     <li><a href="/blog/" class="current">Blog</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
-<section class="page-hero">
-  <div class="page-hero-inner fade-in">
-    <span class="hero-eyebrow">Blog</span>
-    <h1>Notes on <em>numbers</em> and building.</h1>
-    <p class="lede">Short, practical writing on fundraising, financial models and running a company.</p>
-  </div>
-</section>
 
 <!-- POSTS -->
 <section class="posts">
