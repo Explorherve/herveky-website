@@ -14,19 +14,15 @@ I like to see your accountant as a priest. Your accountant knows the accounting 
 
 He prepares your payslips, the accounts of your business and answers all the questions you have about HMRC and all of that. So he is best placed to give you advice on that. Just like a priest will give you advice based on the Bible.
 
-## What he cannot solve
-
-If you ask your son’s football team coach to coach a rugby team, he won’t be able to do so, even though there are similarities.
-
-Indeed, in both sports, there is a team, a ball and they’re played on grass. Except that the rules are different. In one, as soon as you fall, the referee whistles in your favour, while in the other, falling after being charged by your opponent is just part of the game and the referee doesn’t even look at you, even though you’re chewing the grass like a cow does.
-
-Both an accountant and a finance advisor deal with numbers. But they don’t play the same sport.
+To work on financial forecasts, and finance-driven decisions you need a finance advisor or a fractional Finance officer if you don't have a finance background.
 
 ## A finance advisor transforms a set of figures into a story.
 
-Your accountant will prepare the data set and the finance advisor will transform it into a story. It’s like a blacksmith who buys iron and steel before moulding them into a sword that people can buy for their use. A finance advisor is like a blacksmith: they take your numbers and mould them so that you can sell your business to investors.
+Your accountant will prepare the data set and the finance advisor will transform it into a story. It’s like a blacksmith who buys iron and steel before moulding them into a sword that people can buy for their use. So, a finance advisor is like a blacksmith: they take your numbers and mould them so that you can sell your business to investors.
 
-Let me give you an example. As we worked together with Caroline, we turned a bunch of numbers into a story and built a bridge between what she wants to achieve and today’s reality.
+## The example of what a financial advisor can bring to you
+
+Let me give you an example. When I worked with my client Caroline, we turned a bunch of numbers into a story. That supported the explanations between what she wants to achieve and today’s reality.
 
 For instance, her deck was showing that her business was about to penetrate the UK market by 1% in the first year, and so on a few years later.
 
@@ -34,15 +30,24 @@ But going deeper into her numbers, it didn’t show anywhere how she was plannin
 
 After doing that, she could articulate the story of the market penetration.
 
-So now she can say that she’s targeting £100k in revenue in the first year.
+So now she can say that she’s targeting £100k in revenue in the first year and back how she's going to do that:
 
-To do this, she’ll need to acquire 1,000 visitors per month on her website, with [x]% making an average purchase of [4] bras that she sells at £[50], which will bring her £100k.
+She’ll need to acquire 1,000 visitors per month on her website, with [x]% of these visitors making an average purchase of [4] bras. Each bra sells at £[50], which will then bring her £100k.
+
+She can also articulate how much it will cost her to do that:
 
 To acquire these customers, she estimates that it’ll cost £[10] each, driven by a mix of social media ads to start with and relayed by word of mouth and hospital recommendations.
 
-## This is not an accountant's job.
+## Why does the accountant cannot do that?
 
-So while the accountant is working on historical numbers, they focus less on storytelling and understanding how the business works. The accountant prepares you to comply with HMRC. A finance advisor looks at the numbers through the same lens as an investor would.
+If you ask your son’s football team coach to coach a rugby team, he won’t be able to do so, even though there are similarities. 
+
+Indeed, in both sports, there is a team, a ball and they’re played on grass. Except that the rules are different. In one, as soon as you fall, the referee whistles in your favour, while in the other, falling after being charged by your opponent is just part of the game and the referee doesn’t even look at you, even though you’re chewing the grass like a cow does.
+
+Both an accountant and a finance advisor deal with numbers. But they don’t play the same sport.
+
+So while the accountant is working on historical numbers, their focus is less on storytelling and understanding how the business works. The accountant prepares you to comply with HMRC. A finance advisor looks at the numbers through the same lens as an investor would.
+
 
 ## Conclusion
 
