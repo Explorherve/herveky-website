@@ -116,6 +116,38 @@
     footer .contact a { color: #253931; text-decoration: none; border-bottom: 1px solid #B68C4B; transition: border-color .15s ease; }
     footer .contact a:hover { border-color: #253931; }
 
+
+    /* SUBSCRIBE BANNER */
+    .sub-banner {
+      padding: 1.75rem 2rem; margin: 1.5rem 0 0;
+      background: var(--white); border: 1px solid rgba(200,146,42,0.3); border-left: 4px solid var(--gold);
+    }
+    .sub-banner-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; line-height: 1.2; color: var(--ink); margin-bottom: 0.4rem; }
+    .sub-banner .sub-banner-text { font-size: 0.95rem; font-weight: 400; color: var(--ink-soft); line-height: 1.6; margin: 0 0 1.25rem; }
+    .sub-form { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .sub-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .sub-form input[type="text"], .sub-form input[type="email"] {
+      flex: 1 1 180px; min-width: 0; padding: 0.8rem 1rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink);
+      background: var(--cream); border: 1px solid rgba(200,146,42,0.5); border-radius: 0;
+    }
+    .sub-form input::placeholder { color: var(--ink-soft); opacity: 0.7; }
+    .sub-form input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+    .sub-form button {
+      flex: 0 0 auto; padding: 0.8rem 1.6rem; cursor: pointer;
+      background: var(--gold-light); color: var(--ink); border: 1px solid var(--gold); border-radius: 0;
+      font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .sub-form button:hover { background: var(--gold-pale); }
+    .sub-form button:disabled { opacity: 0.6; cursor: default; }
+    .sub-botcheck { display: none; }
+    .sub-message { font-size: 0.95rem; color: var(--ink); margin-top: 0.9rem; min-height: 1.4em; }
+    @media (max-width: 700px) {
+      .sub-banner { padding: 1.5rem 1.25rem; }
+      .sub-form button { width: 100%; }
+    }
+
     /* ANIMATIONS */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -167,6 +199,45 @@
     <blockquote>“A totally blind process can by definition lead to anything; it can even lead to vision itself.”</blockquote>
     <p>So for all your questions relating to payslips, accounts, expenses and HMRC, ask your accountant.</p>
     <p>For your questions on pricing, profits, financial forecasts, valuation and financial storytelling, ask your finance advisor.</p>
+    <div class="sub-banner">
+      <p class="sub-banner-title">Subscribe to the blog</p>
+      <p class="sub-banner-text">I write about finance storytelling for founders, so you can present your numbers in the best possible light. New posts go straight to your inbox.</p>
+      <form class="sub-form" id="subscribe-form">
+        <input type="checkbox" name="botcheck" class="sub-botcheck" tabindex="-1" autocomplete="off">
+        <label for="sub-name">Your name</label>
+        <input type="text" id="sub-name" name="name" placeholder="Your name" required autocomplete="name">
+        <label for="sub-email">Your email address</label>
+        <input type="email" id="sub-email" name="email" placeholder="Your email address" required autocomplete="email">
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="sub-message" id="subscribe-message" role="status" aria-live="polite"></p>
+    </div>
+    <script>
+      (function () {
+        var form = document.getElementById('subscribe-form');
+        var message = document.getElementById('subscribe-message');
+        var button = form.querySelector('button');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          button.disabled = true;
+          message.textContent = 'Sending...';
+          fetch('https://script.google.com/macros/s/AKfycbw4FWaNcHiizWtr-1SzT50YqXIR-KHWJ43pJ4DDvnBTj_A8GPKaDJeuxK9qP5xIh_MpKQ/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams(new FormData(form))
+          })
+          .then(function () {
+            message.textContent = 'Thank you, you are subscribed.';
+            form.reset();
+            button.disabled = false;
+          })
+          .catch(function () {
+            message.textContent = 'Something went wrong. Please try again.';
+            button.disabled = false;
+          });
+        });
+      })();
+    </script>
   </div>
 </article>
 
