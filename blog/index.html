@@ -173,7 +173,7 @@
           e.preventDefault();
           button.disabled = true;
           message.textContent = 'Sending...';
-          fetch('YOUR_APPS_SCRIPT_WEB_APP_URL', {
+          fetch('https://script.google.com/macros/s/AKfycbw4FWaNcHiizWtr-1SzT50YqXIR-KHWJ43pJ4DDvnBTj_A8GPKaDJeuxK9qP5xIh_MpKQ/exec', {
             method: 'POST',
             mode: 'no-cors',
             body: new URLSearchParams(new FormData(form))
