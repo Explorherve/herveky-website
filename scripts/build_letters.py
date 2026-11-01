@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
-"""Build the blog from posts/*.md.
+"""Build the letters from posts/*.md.
 
 Each post is posts/YYYY-MM-DD-slug.md, starting with a header:
 
     ---
     title: My title
     date: 2026-10-21
-    summary: One-line summary shown on the blog list.
+    summary: One-line summary shown on the letters list.
     ---
 
 followed by the article. Supported: blank line = new paragraph, "## " and "### "
 headings, "> " quote, **bold**, *italic*, [text](url), and images on their own
-line: ![description](/images/blog/photo.jpg "optional caption").
-Output: blog/index.html, blog/<slug>/index.html, sitemap.xml and feed.xml. No dependencies.
+line: ![description](/images/letters/photo.jpg "optional caption").
+Output: letters/index.html, letters/<slug>/index.html, sitemap.xml and feed.xml. No dependencies.
 """
 import datetime, email.utils, html, json, pathlib, re, shutil, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-POSTS, BLOG, TPL = ROOT / "posts", ROOT / "blog", ROOT / "scripts"
+POSTS, LETTERS, TPL = ROOT / "posts", ROOT / "letters", ROOT / "scripts"
 SITE = "https://herveky.com"
-# Public pages besides the blog posts. Private pages are deliberately not listed.
+# Public pages besides the letters. Private pages are deliberately not listed.
 STATIC_PAGES = ["/"]
 
 
@@ -82,8 +82,8 @@ def fill(template, **values):
 
 def write_sitemap(posts):
     urls = [(SITE + path, None) for path in STATIC_PAGES]
-    urls.append((SITE + "/blog/", posts[0]["date"].isoformat() if posts else None))
-    urls += [(f"{SITE}/blog/{p['slug']}/", p["date"].isoformat()) for p in posts]
+    urls.append((SITE + "/letters/", posts[0]["date"].isoformat() if posts else None))
+    urls += [(f"{SITE}/letters/{p['slug']}/", p["date"].isoformat()) for p in posts]
     rows = "\n".join(
         f"  <url><loc>{u}</loc>" + (f"<lastmod>{d}</lastmod>" if d else "") + "</url>" for u, d in urls
     )
@@ -98,8 +98,8 @@ def write_feed(posts):
     items = "\n".join(
         f"""    <item>
       <title>{html.escape(p['title'], quote=False)}</title>
-      <link>{SITE}/blog/{p['slug']}/</link>
-      <guid>{SITE}/blog/{p['slug']}/</guid>
+      <link>{SITE}/letters/{p['slug']}/</link>
+      <guid>{SITE}/letters/{p['slug']}/</guid>
       <pubDate>{email.utils.format_datetime(datetime.datetime.combine(p['date'], datetime.time(9), datetime.timezone.utc))}</pubDate>
       <description>{html.escape(p['summary'], quote=False)}</description>
     </item>"""
@@ -109,8 +109,8 @@ def write_feed(posts):
         f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Hervé Ky blog</title>
-    <link>{SITE}/blog/</link>
+    <title>Hervé Ky letters</title>
+    <link>{SITE}/letters/</link>
     <description>Short, practical writing on fundraising, financial models and running a company.</description>
 {items}
   </channel>
@@ -126,30 +126,30 @@ def main():
     index_tpl = (TPL / "index.template.html").read_text(encoding="utf-8")
 
     slugs = {p["slug"] for p in posts}
-    for d in BLOG.iterdir():  # drop pages for deleted posts
+    for d in LETTERS.iterdir():  # drop pages for deleted posts
         if d.is_dir() and d.name not in slugs:
             shutil.rmtree(d)
 
     items = []
     for p in posts:
-        (BLOG / p["slug"]).mkdir(parents=True, exist_ok=True)
-        (BLOG / p["slug"] / "index.html").write_text(fill(
+        (LETTERS / p["slug"]).mkdir(parents=True, exist_ok=True)
+        (LETTERS / p["slug"] / "index.html").write_text(fill(
             post_tpl,
             TITLE=html.escape(p["title"]),
             SUMMARY=html.escape(p["summary"]),
             DATE_LONG=f"{p['date'].day} {p['date']:%B %Y}",
             DATE_ISO=p["date"].isoformat(),
-            URL=f"{SITE}/blog/{p['slug']}/",
+            URL=f"{SITE}/letters/{p['slug']}/",
             JSON_TITLE=json.dumps(p["title"], ensure_ascii=False),
             JSON_SUMMARY=json.dumps(p["summary"], ensure_ascii=False),
             CONTENT=render(p["body"]),
         ), encoding="utf-8")
-        items.append(f'''    <a class="post fade-in" href="/blog/{p['slug']}/">
+        items.append(f'''    <a class="post fade-in" href="/letters/{p['slug']}/">
       <p class="post-meta">{p['date'].day} {p['date']:%b %Y}</p>
       <h2 class="post-title">{html.escape(p['title'], quote=False)}</h2>
       <p class="post-summary">{html.escape(p['summary'], quote=False)}</p>
     </a>''')
-    (BLOG / "index.html").write_text(fill(index_tpl, POSTS="\n".join(items)), encoding="utf-8")
+    (LETTERS / "index.html").write_text(fill(index_tpl, POSTS="\n".join(items)), encoding="utf-8")
     write_sitemap(posts)
     write_feed(posts)
     print(f"Built {len(posts)} post(s)")

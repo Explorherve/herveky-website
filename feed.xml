@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Hervé Ky blog</title>
-    <link>https://herveky.com/blog/</link>
+    <title>Hervé Ky letters</title>
+    <link>https://herveky.com/letters/</link>
     <description>Short, practical writing on fundraising, financial models and running a company.</description>
     <item>
       <title>Why financial storytelling is so important when you are looking for funding</title>
-      <link>https://herveky.com/blog/financial-storytelling-funding/</link>
-      <guid>https://herveky.com/blog/financial-storytelling-funding/</guid>
+      <link>https://herveky.com/letters/financial-storytelling-funding/</link>
+      <guid>https://herveky.com/letters/financial-storytelling-funding/</guid>
       <pubDate>Wed, 28 Oct 2026 09:00:00 +0000</pubDate>
       <description>Founders who tell the story behind their numbers are more likely to get funded.</description>
     </item>
     <item>
       <title>Why your accountant won't be able to do your startup's financial projections</title>
-      <link>https://herveky.com/blog/why-your-accountant-cant-solve-your-finance-questions/</link>
-      <guid>https://herveky.com/blog/why-your-accountant-cant-solve-your-finance-questions/</guid>
+      <link>https://herveky.com/letters/why-your-accountant-cant-solve-your-finance-questions/</link>
+      <guid>https://herveky.com/letters/why-your-accountant-cant-solve-your-finance-questions/</guid>
       <pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
       <description>Your accountant knows the rules and HMRC. A finance advisor turns your numbers into a story investors can follow. Here is the difference, with a real founder example.</description>
     </item>
