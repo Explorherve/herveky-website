@@ -119,9 +119,9 @@ h1 .accent, h2 .accent{color:var(--gold);}
   background:linear-gradient(to bottom,#FBF8F2 0%,#F4ECE0 100%);
   padding:4.5rem 0;
 }
-.hero-grid{display:grid; gap:2.5rem; align-items:center; text-align:center;}
+.hero-text{max-width:48rem; margin:0 auto; text-align:center;}
 .hero-text .eyebrow{display:table; margin-left:auto; margin-right:auto;}
-.hero-text h1{margin-left:auto; margin-right:auto; max-width:32rem;}
+.hero-text h1{margin-left:auto; margin-right:auto; max-width:42rem;}
 .standfirst{
   font-size:1.15rem; line-height:1.6; color:var(--moss);
   margin:0 auto 2.5rem; max-width:33rem; text-wrap:balance;
@@ -134,20 +134,6 @@ h1 .accent, h2 .accent{color:var(--gold);}
   transition:background .15s ease;
 }
 .cta-link:hover{background:var(--gold);}
-.hero-photo{display:block; max-width:26rem; margin:0 auto;}
-.hero-photo img{
-  display:block; width:100%; height:auto; aspect-ratio:1/1; max-height:22rem;
-  object-fit:cover; object-position:56% 30%;
-  border-radius:16px; box-shadow:0 18px 40px rgba(37,57,49,.18);
-}
-@media (min-width:900px){
-  .hero-grid{grid-template-columns:3fr 1fr; gap:3.5rem; text-align:left;}
-  .hero-text .eyebrow{display:inline-block; margin-left:0; margin-right:0;}
-  .hero-text h1{margin-left:0; max-width:none;}
-  .standfirst{margin-left:0; text-wrap:pretty;}
-  .hero-photo{max-width:none; margin:0;}
-  .hero-photo img{aspect-ratio:4/5; max-height:none;}
-}
 
 /* ---------- what you get ---------- */
 .benefits{background:#FFFFFF; padding:4rem 0;}
@@ -272,18 +258,13 @@ posthog.init("phc_tSPeLLgLuj4amoGMKtEX2k3u7K3A2PjhouWPisaxMv3P", {
 
   <section class="hero">
     <div class="inner-wide">
-      <div class="hero-grid">
-        <div class="hero-text">
+      <div class="hero-text">
           <p class="eyebrow">Free pricing calculator</p>
           <h1>Know the profit you make on <span class="accent">every unit you sell</span>.</h1>
           <p class="standfirst">
             Enter your price, your landed cost, your marketing cost and your selling and return costs. The calculator shows your profit per unit, and how many units you need to sell each month to break even.
           </p>
           <a href="#gate-section" class="cta-link">Get the free calculator</a>
-        </div>
-        <a href="#about" class="hero-photo">
-          <img src="/herve.jpg" alt="Hervé Ky" width="1280" height="853">
-        </a>
       </div>
     </div>
   </section>
