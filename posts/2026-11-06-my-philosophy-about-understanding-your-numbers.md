@@ -1,18 +1,18 @@
 ---
 title: My philosophy about understanding your numbers to make your business profitable
 date: 2026-11-06
-summary: Why understanding your numbers is what makes a business profitable.
+summary: Why understanding your numbers is what makes your business profitable.
 ---
 
 Dear reader,
 
 If you are reading this, it is highly likely that you found me because you are, for some reason, interested in understanding your numbers better than you currently do. So what I want to share with you in this letter is my philosophy behind my work.
 
-I believe that you can't make the most of your business if you don't understand your numbers. You can't raise money from investors, and you can't realise the full potential of your business.
-
 ## First, why do I share my philosophy with you?
 
-It's for you to understand where is behind my head when you read me. If you don't know about my philosophy, then it is difficult for you to understand why I am doing what I am doing. So the philosophy is quite simple.
+It's for you to understand how I think. If you don't know about my philosophy, then it is difficult for you to understand why I am doing what I am doing. So my philosophy is quite simple:
+
+I believe that you can't make the most of your business if you don't understand your numbers. You can't raise money from investors, and you can't realise the full potential of your business.
 
 It's about understanding what needs to be true for the business to become profitable by looking at the numbers in detail.
 
@@ -20,7 +20,9 @@ For example, a merchant might be selling many of his products, but at the end of
 
 One of the reasons business owners thrive is because they look deeply into the numbers and focus on the main variables of success.
 
-For example, I have a friend who owns restaurants. He told me that in order for a restaurant to be successful, there are two main things to control: food wastage and the price of the food supply. By closely monitoring these two things, he manages to make a profit within only six months of opening a new restaurant, something that some restaurants never really succeed at.
+For example, I have a friend who owns restaurants. He told me that in order for a restaurant to be successful, there are two main things to control: food wastage and the price of the food supply. 
+
+By closely monitoring these two things, he manages to make a profit within only six months of opening a new restaurant, something that some restaurants never really succeed at.
 
 That's the secret sauce of profitable business owners. They know how to spot the parts of the business to focus on to make it profitable. They do so by breaking down how the business works and looking at the numbers behind it.
 
@@ -40,13 +42,13 @@ Well, first, it's by translating how your business works into numbers. In other 
 
 And creating a number-only version doesn't apply only to businesses, it's been used across disciplines and throughout history.
 
-For example, the explorer Columbus used calculations to plan his journey to the West, while the physicist Newton used mathematics to understand how objects move, the scientist Einstein used it to understand how the universe works, and the architect Gustave Eiffel used it to design structures. There are countless examples.
-
-All of them used a number-only version of their projects or theories to understand the core variables of success rather than guessing.
+For example, the explorer Columbus used calculations to plan his journey to the West, the physicist Newton used mathematics to understand how objects move, scientist Einstein used it to understand how the universe works, and architect Gustave Eiffel used it to design the Eiffel Tower. There are countless examples.
 
 Right now, NASA has developed models that try to simulate reality in space. This allows them to prepare for the uncertainties of their missions while on Earth.
 
-For a business owner, the approach is similar: you want to be able to pinpoint the variables that make your business move in one direction or another. When you know why your business is moving in one direction or another, you are the one in control, and it's a great feeling.
+All of them used a number-only version of their projects or theories to understand the core variables of success rather than guessing.
+
+For a business owner, the approach is similar: you want to be able to pinpoint the variables that make your business move in one direction or another. When you know why your business is moving in one direction or another, you are the one in control.
 
 ## But yes, there are some limits to that approach.
 
@@ -54,7 +56,7 @@ The number-only version doesn't mean that you can capture all of the reality of 
 
 By the way, Columbus was wrong in his estimate of the circumference of the Earth when planning his westward voyage, but he still reached the Americas.
 
-The same goes for your numerical version of your business. Your assumptions might be wrong. But the process of building and testing them can help you discover opportunities you wouldn't otherwise have considered.
+The same goes for your number-only version of your business. Your assumptions might be wrong. But the process of building and testing them can help you discover opportunities you wouldn't otherwise have considered.
 
 For example, one of the founders I worked with recently discovered a new go-to-market strategy by understanding how her margins work.
 
@@ -74,4 +76,4 @@ So my point is simple: by breaking down how your business works into numbers and
 
 It's all about reducing the risk of making bad decisions to make your business thrive.
 
-Thank you for reading, if you'd like to read my next letter, you can subscribe to my newsletter and I'll share it with you in your inbox!
+Thank you for reading this letter, if you'd like to read my next letter, you can subscribe to my newsletter and I'll share it with you in your inbox!
