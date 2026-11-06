@@ -50,7 +50,7 @@ All of them used a number-only version of their projects or theories to understa
 
 For a business owner, the approach is similar: you want to be able to pinpoint the variables that make your business move in one direction or another. When you know why your business is moving in one direction or another, you are the one in control.
 
-## But yes, there are some limits to that approach.
+## But yes, there are some limits to that approach
 
 The number-only version doesn't mean that you can capture all of the reality of your business, but it is a proxy that enables you to see visually and numerically what it takes for the business to become profitable.
 
