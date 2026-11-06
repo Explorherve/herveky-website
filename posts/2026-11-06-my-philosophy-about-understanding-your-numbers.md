@@ -24,6 +24,8 @@ For example, I have a friend who owns restaurants. He told me that in order for 
 
 That's the secret sauce of profitable business owners. They know how to spot the parts of the business to focus on to make it profitable. They do so by breaking down how the business works and looking at the numbers behind it.
 
+## Imagine that you were a scientist
+
 If you were a scientist trying to understand blood, you would take the same approach. For example, when you and I look at blood with our eyes, we just see a red liquid. But if we look at it under a microscope, we see different components: red blood cells, white blood cells, and platelets.
 
 Each has a different function: red blood cells transport oxygen, white blood cells help fight infections, and platelets help blood clot.
