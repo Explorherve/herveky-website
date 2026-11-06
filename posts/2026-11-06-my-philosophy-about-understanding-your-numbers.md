@@ -56,7 +56,7 @@ By the way, Columbus was wrong in his estimate of the circumference of the Earth
 
 The same goes for your numerical version of your business. Your assumptions might be wrong. But the process of building and testing them can help you discover opportunities you wouldn't otherwise have considered.
 
-One of the founders I worked with recently discovered a new go-to-market strategy by understanding how her margins work.
+For example, one of the founders I worked with recently discovered a new go-to-market strategy by understanding how her margins work.
 
 ## What if you don't build a numerical version of your business?
 
