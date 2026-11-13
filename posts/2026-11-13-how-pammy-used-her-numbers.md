@@ -6,7 +6,7 @@ summary: How Pammy went from guessing her numbers to having a clear framework fo
 
 Dear reader,
 
-A founder, Pammy, reached out to me as she wanted to understand how to use her business numbers to make informed decisions and run a profitable business.
+A founder selling physical items, Pammy, reached out to me as she wanted to understand how to use her business numbers to make informed decisions and run a profitable business.
 
 In this letter, I will show you the before and after Pammy’s understanding of her numbers and how this allowed her to establish a pricing strategy, understand the right margins to make and know what go-to-market channels to prioritise.
 
