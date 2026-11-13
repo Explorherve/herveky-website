@@ -1,22 +1,22 @@
 ---
-title: How Pammy used her numbers to make informed business decisions
+title: How I got Anna her pricing strategy, margins and GTM by looking just at her numbers
 date: 2026-11-13
-summary: How Pammy went from guessing her numbers to having a clear framework for her pricing strategy.
+summary: Anna’s business is a fashion brand with physical products
 ---
 
 Dear reader,
 
-A founder selling physical items, Pammy, reached out to me as she wanted to understand how to use her business numbers to make informed decisions and run a profitable business.
+A founder selling physical items, Anna, reached out to me as she wanted to understand how to use her business numbers to make informed decisions and run a profitable business.
 
-In this letter, I will show you the before and after Pammy’s understanding of her numbers and how this allowed her to establish a pricing strategy, understand the right margins to make and know what go-to-market channels to prioritise.
+In this letter, I will show you the before and after Anna’s understanding of her numbers and how this allowed her to establish a pricing strategy, understand the right margins to make and know what go-to-market channels to prioritise.
 
 I will also show you that you can’t run a financially sustainable business if you don’t understand your numbers early.
 
-So, let’s start with the story of Pammy.
+So, let’s start with the story of Anna.
 
-## Who is Pammy?
+## Who is Anna?
 
-Pammy was pre-launch when she first contacted me. Before Pammy started the process of understanding her numbers, she didn’t know how to use her numbers to make decisions that would help her run a profitable business.
+Anna was pre-launch when she first contacted me. Before Anna started the process of understanding her numbers, she didn’t know how to use her numbers to make decisions that would help her run a profitable business.
 
 When talking about her product to her clients, the same question kept coming up: “What is your pricing?”. Investors asked her, “Where do you sit in the market?”.
 
@@ -74,7 +74,7 @@ So, by understanding her numbers, she can make an informed decision on the margi
 
 Another example of how to use your numbers to make informed business decisions is to determine which go-to-market channel to prioritise.
 
-For example, with Pammy, we compared the customer acquisition cost per unit when selling directly through her website with the cost of selling to boutiques.
+For example, with Anna, we compared the customer acquisition cost per unit when selling directly through her website with the cost of selling to boutiques.
 
 We found out that the marketing cost of selling on the website was higher than that of selling to the boutiques.
 
@@ -112,7 +112,7 @@ The more time you spend not understanding your numbers, the more uninformed deci
 
 ## Understanding your numbers is your competitive advantage
 
-Understanding the numbers allowed Pammy to make informed business decisions. She went from guessing her numbers to having a clear framework for her pricing strategy. She now understands the margins she needs to make and knows which channels to target.
+Understanding the numbers allowed Anna to make informed business decisions. She went from guessing her numbers to having a clear framework for her pricing strategy. She now understands the margins she needs to make and knows which channels to target.
 
 Ultimately, she feels more confident about launching her product, and speaking about her numbers in public and with investors.
 
