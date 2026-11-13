@@ -26,9 +26,9 @@ Despite having calculated her landed and production costs, she still couldn’t 
 
 All of this led her to urgently stop guessing her pricing and come up with a structure.
 
-## So, how did she come up with a pricing strategy?
+## We looked into her manufacturing costs, customer acquisition costs, selling costs and her business costs
 
-We looked into her manufacturing costs, customer acquisition costs, selling costs and her business costs and compared these to the provisional prices she had in mind.
+And we compared these costs to the provisional prices she had in mind.
 
 By doing this, we established the minimum price at which she could sell her product without losing money.
 
