@@ -46,11 +46,9 @@ Now she could see more clearly the consequences of each pricing for her business
 
 However, she still had doubts about the margins she needed to make.
 
-“Are my margins enough?”, she asked me. “It depends on your objectives”, I replied.
+## “Are my margins enough?”, she asked me. “It depends on your objectives”, I replied.
 
 Let me explain my reasoning.
-
-## Understand the margins you need to make
 
 For example, if her objective is to increase the availability of her product through partner boutiques, she doesn’t necessarily need to optimise her margins.
 
