@@ -14,9 +14,9 @@ I will also show you that you can’t run a financially sustainable business if 
 
 So, let’s start with the story of Anna.
 
-## Anna was pre-launch when she first contacted me.
+## Anna needed to have a pricing strategy to pitch her clients.
 
-Before Anna started the process of understanding her numbers, she didn’t know how to use her numbers to make decisions that would help her run a profitable business.
+Anna was pre-launch when she first contacted me. Before Anna started the process of understanding her numbers, she didn’t know how to use her numbers to make decisions that would help her run a profitable business.
 
 When talking about her product to her clients, the same question kept coming up: “What is your pricing?”. Investors asked her, “Where do you sit in the market?”.
 
