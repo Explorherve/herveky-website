@@ -140,7 +140,7 @@ But I realised what would happen in a meeting with an investor:
 
 As much as it might become true, if you don’t believe in your numbers, they will be unrealistic by definition.
 
-To make realistic projections, base yourself on reality and avoid lying to yourself.
+## **To make realistic projections, base yourself on reality and avoid lying to yourself.**
 
 As I covered in this letter, there are 5 ways to do so: using industry average, your own experiments, your insights based on real conversations with customers, your marketing budget constraints and tying your assumptions to your product development.
 
