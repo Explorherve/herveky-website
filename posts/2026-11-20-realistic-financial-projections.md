@@ -12,7 +12,7 @@ I recently asked a founder after she described to me her projections: “ How di
 
 She went on to tell me that she wasn’t confident and asked me how to do realistic projections when you haven’t made any sales yet.
 
-In this letter, I will share with the 5 ways I shared with her to make realistic projections and that you can use straight away.
+In this letter, I will share with you the 5 ways I shared with her to make realistic projections and that you can use straight away.
 
 I will also show you what to avoid, so you are confident with your numbers and don’t come up with unrealistic financial projections.
 
@@ -88,7 +88,7 @@ So your growth can come from the marketing but growth might also come from impro
 
 Let’s see how realistic this can be.
 
-## Tie your growth projections to your products launch (#5)
+## Tie your growth projections to your product launches (#5)
 
 If you plan to make a better product, a better workflow for your customers, and you have some proof that this can realistically be driving a higher conversion rate, then use that method.
 
@@ -126,7 +126,7 @@ And to keep increasing your chances of getting money from investors and from cus
 
 ### Don’t use numbers you don’t believe in
 
-When I prepared my own financial projections for my first business, I caught myself trying to show exponential growth, that means revenue going from £10,000 to £5 millions in 3 years.
+When I prepared my own financial projections for my first business, I caught myself trying to show exponential growth, that means revenue going from £10,000 to £5 million in 3 years.
 
 Not because I believed in it but because I thought investors wanted to see that.
 
